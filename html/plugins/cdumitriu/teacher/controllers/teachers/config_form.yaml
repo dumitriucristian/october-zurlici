@@ -1,0 +1,11 @@
+name: Teachers
+modelClass: cdumitriu\Teacher\Models\Teacher
+form: $/cdumitriu/teacher/models/teacher/fields.yaml
+defaultRedirect: cdumitriu/teacher/teachers
+create:
+    redirect: 'cdumitriu/teacher/teachers/update/:id'
+    redirectClose: cdumitriu/teacher/teachers
+update:
+    redirect: cdumitriu/teacher/teachers
+    redirectClose: cdumitriu/teacher/teachers
+preview: {  }

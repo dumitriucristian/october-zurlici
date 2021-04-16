@@ -1,0 +1,116 @@
+title = "articol"
+url = "/:category/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPost]
+[blogCategories]
+slug = "{{ :slug }}"
+categoryPage = "articol"
+==
+{% set post = blogPost.post %}
+
+<div id="cta2" style="" class="text-center" style="background-color:#64686d; color:#fff; margin-bottom:155px;">
+    <div class="container">
+        {% partial "cta1" %}
+    </div>
+
+</div>
+
+
+<div class="container"  id="articol">
+
+   <div class="col-md-8">
+       <div class="section-header">
+           <h3 class="section-title text-center wow fadeInDown">{{post.title}}</h3>
+       </div>
+
+       {% if post.featured_images.count %}
+       <div class="featured-images text-center">
+           {% for image in post.featured_images %}
+           <p>
+               <img
+                   data-src="{{ image.filename }}"
+                   src="{{ image.path }}"
+                   alt="{{ image.description }}"
+                   style="max-width: 100%; max-height:380px;"
+                   class="img-rounded"
+               />
+           </p>
+           {% endfor %}
+       </div>
+       {% endif %}
+       <div class="content">{{ post.content_html | raw }}</div>
+
+       <p class="info">
+           {% if post.categories.count %}
+           {% set categoryLinks = post.categories | map(c => "<a href=\"#{c.url}\">#{c.name}</a>") | join(', ') %}
+
+           {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+           date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+           categories: categoryLinks
+           }) }}
+           {% else %}
+           {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+           date: post.published_at | date('rainlab.blog::lang.post.date_format'|trans)
+           }) }}
+           {% endif %}
+       </p>
+   </div>
+
+    <div id="category-nav" class="col-md-4">
+        <span class="top-decorator"><p>Castigatori din anii anteriori</p></span>
+        {% component 'blogCategories' %}
+    </div>
+
+
+
+</div>
+    <style>
+        #articol {
+           margin-top:150px;
+        }
+
+        #articol h3{
+            font-size:32px;
+        }
+
+        #articol img{
+            border-radius:16px;
+        }
+        #category-nav ul{
+            padding:0;
+            width:240px;
+        }
+       #category-nav li{
+           list-style: none;
+           background-color: black;
+           border-bottom: solid 1px white;
+           padding: 5px 20px;
+           text-align: right;
+           display:flex;
+           flex-direction: row;
+       }
+        #category-nav li a{
+            display:block;
+            width:100%;
+        }
+
+        #category-nav li:hover{
+            background-color:#564747;
+            cursor: pointer;
+        }
+        .top-decorator p{
+            border-bottom: solid 3px #afafaf;
+            font-size: 1.2em;
+            text-align: center;
+            width:240px;
+            font-weight: bold;
+
+        }
+        .badge{
+            min-width: 19px;
+            padding: 6px 7px;
+            margin-left:10px
+        }
+    </style>

@@ -1,0 +1,81 @@
+title = "Multi"
+url = "/"
+layout = "default"
+description = "Home Page"
+meta_author = "JoomShaper and József Tamás Herczeg"
+meta_description = "Free one page multipurpose Bootstrap powered theme, ported for OctoberCMS"
+meta_keywords = "business, corporate, multipurposa, portfolio, one page, single page, bootstrap, responsive"
+==
+<section id="main-slider">
+    {% partial "slides" %}
+</section><!--/#main-slider-->
+
+<section id="cta" class="wow fadeIn">
+    <div class="container">
+        <div class="row">
+            {% content 'cta.htm' %}
+        </div>
+    </div>
+</section><!--/#cta-->
+
+<section id="features">
+    {% partial "features" %}
+</section><!--/#features-->
+
+<section id="cta2">
+    <div class="container">
+        <div class="text-center">
+            {% partial "cta2" %}
+        </div>
+    </div>
+</section>
+
+<section id="services" >
+    {% partial "services" %}
+</section><!--/#services-->
+
+<section id="portfolio">
+    {% partial "portfolio" %}
+</section><!--/#portfolio-->
+
+<section id="about">
+    {% partial "about" %}
+</section><!--/#about-->
+
+<section id="work-process">
+    <div class="container">
+        {% content 'process.htm' %}
+    </div>
+</section><!--/#work-process-->
+
+<section id="meet-team">
+    {% partial "team" %}
+</section><!--/#meet-team-->
+
+<section id="animated-number">
+    {% content 'facts.htm' %}
+</section><!--/#animated-number-->
+
+<section id="pricing">
+    {% partial "pricing" %}
+</section><!--/#pricing-->
+
+<section id="testimonial">
+    {% partial "feedback" %}
+</section><!--/#testimonial-->
+
+<section id="blog">
+    {% partial "blogs" %}
+</section><!--/#blog-->
+
+<section id="get-in-touch">
+    <div class="container">
+        <div class="section-header">
+            {% content 'precontact.htm' %}
+        </div>
+    </div>
+</section><!--/#get-in-touch-->
+
+<section id="contact">
+    {% partial "contact" %}
+</section><!--/#contact-->
