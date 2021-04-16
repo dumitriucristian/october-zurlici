@@ -1,0 +1,28 @@
+fields:
+    user_email:
+        label: 'User email'
+        span: auto
+        type: text
+    user_name:
+        label: 'User Name'
+        span: auto
+        type: text
+    teacher_name:
+        label: 'Teacher name'
+        span: auto
+        placeholder: 'cdumitriu.teacher::lang.plugin.name'
+        type: text
+    teacher_details:
+        label: 'Teacher Details'
+        size: ''
+        span: auto
+        type: richeditor
+    letter:
+        label: Letter
+        span: auto
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload

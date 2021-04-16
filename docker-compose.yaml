@@ -1,0 +1,37 @@
+#docker-compose.yml cFApad7i45OHA6NC0eQz1M
+version: '3'
+services:
+  web:
+    image: aspendigital/octobercms:latest
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+    volumes:
+      - .:/var/www/
+    
+    networks:
+      - code-network
+
+    environment:
+      - DB_TYPE=mysql
+      - DB_HOST=octobercms_mysql_1 #DB_HOST should match the service name of the database container
+      - DB_DATABASE=octobercms
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=octobercms
+    volumes:g
+      - ./volumes/mysql/data:/var/lib/mysql
+    networks:
+      - code-network
+  
+networks:
+  code-network:
+    driver: bridge

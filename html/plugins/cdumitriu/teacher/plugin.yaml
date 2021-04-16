@@ -1,0 +1,20 @@
+plugin:
+    name: 'cdumitriu.teacher::lang.plugin.name'
+    description: 'cdumitriu.teacher::lang.plugin.description'
+    author: cdumitriu
+    icon: oc-icon-university
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Teachers
+        url: cdumitriu/teacher/teachers
+        icon: icon-life-ring
+        sideMenu:
+            'Teachers list':
+                label: 'Teachers list'
+                url: /
+                icon: icon-list
+            'Teacher detail':
+                label: 'cdumitriu.teacher::lang.plugin.name'
+                url: /
+                icon: icon-info
