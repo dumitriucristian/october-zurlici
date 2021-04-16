@@ -1,0 +1,10 @@
+{% set teachers = TeacherList.teachers %}
+<h1>Here should be teacher list</h1>
+<div>
+    {% for teacher in teachers %}
+    <p>numele invatatoarei: {{teacher.teacher_name}}</p>
+    <p>detalii invatatoare: {{teacher.teacher_detail}}</p>
+    <p>user name: {{teacher.user_name}}</p>
+    <img src="{{teacher.letter.path}}" width="150"/>
+    {% endfor %}
+</div>

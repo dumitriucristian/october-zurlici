@@ -1,0 +1,34 @@
+
+<div class="container-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="contact-form">
+                    <h3>Prezinta-ne invatatoarea ta </h3>
+
+                    <form id="main-contact-form" data-request="onSend" data-request-flash data-request-files>
+                        <div class="form-group">
+                            <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="user-email" class="form-control" data-request-flash data-request-file placeholder="Email-ul tau" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="teacher-name" class="form-control" placeholder="Numele Invatatoarei" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="teacher-details" class="form-control" rows="8" placeholder="Spune-ne cateva cuvinte despre ea" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="letter" class="form-control" placeholder="Ataseaza scrisoarea ta" accept="image/*" data-request="onImageUpload" data-request-flash data-request-files>
+                        </div>
+                        <div id="imageResult">No image to preview</div>
+                        <br><br>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
