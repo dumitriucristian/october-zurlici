@@ -1,4 +1,3 @@
-#docker-compose.yml cFApad7i45OHA6NC0eQz1M
 version: '3'
 services:
   web:

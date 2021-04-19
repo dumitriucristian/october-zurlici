@@ -1,6 +1,7 @@
 title = "Site Maintenance"
 url = "/offline"
 description = "Site Maintenance page"
+is_hidden = 0
 ==
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +16,48 @@ description = "Site Maintenance page"
 <link href="{{ ['assets/css/offline.css']|theme }}" rel="stylesheet">
 </head>
 <body>
-<div id="border">
-<div id="logobg">
-	<img src="{{ 'assets/images/logo.png'|theme }}" alt="logo"><br>
-</div>	
-<h2>Offline</h2>
-	<p>This site is currently down for maintenance.<br>Please return soon.</p>
+
+<div id="background">
+    <div id="overtext">
+        <p>Se cauta invatatoarea anului.<br/>Cine sa fie oare ? <br>
+            <span>In curand...</span>
+        </p>
+    </div>
+    <div id="">
+
+    </div>
 </div>
+
 </body>
+<style>
+ span{
+     text-align: right;
+     display: block;
+     padding: 15px;
+ }
+ body{
+     margin:0;
+     background-image:url("https://mirelaretegan.ro/uploads/modules/news/0/2020/5/14/1451/158943787200610070.jpg");
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+ }
+ img{
+    border: 0 none;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 100%;
+ }
+ #overtext{
+     position: absolute;
+     width: 50%;
+     text-align: left;
+     padding: 25px;
+     font-size: clamp(4vw, 4vw, 4vw);
+     color: #f3f3f3;
+     font-weight: bold;
+     font-style: italic;
+ }
+</style>
 </html>
