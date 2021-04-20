@@ -9,7 +9,7 @@ class Plugin extends PluginBase
             return [
               'Cdumitriu\Teacher\Components\TeacherForm'  => 'TeacherForm',
               'Cdumitriu\Teacher\Components\TeacherList'  => 'TeacherList',
-              'Cdumitriu\Teacher\Components\TeacherDetails'  => 'TeacherDetails'
+              'Cdumitriu\Teacher\Components\TeacherDetails'  => 'TeacherDetails',
             ];
     }
 

@@ -22,9 +22,9 @@ postPage = "articol"
     </div>
     <div class="row">
         {% for post in posts %}
-        <div class="col-md-6">
+        <div class="col-md-4 col-lg-4 col-sm-4">
             <div class="blog-post blog-large wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="0ms">
-                <article>
+                <article class="mt-2 mb-2">
                     <div class="entry-thumbnail">
                         {% for image in post.featured_images|slice(0,1) %}
                         <img class="img-responsive thumb-image" src="{{image.path}}" alt="" >
@@ -51,55 +51,27 @@ postPage = "articol"
     </div>
 </div>
 
+</div>
 
-        <li>
-            <h3><a href="{{ post.url }}"></a></h3>
-
-            {% for image in post.featured_images|slice(0,1) %}
-            <div class="cp-thumb"><img src="{{image.path}}" alt="" ></div>
-
-
-            <p class="info">
-                {% if post.categories.count %}
-                    {% set categoryLinks = post.categories | map(c => "<a href=\"#{c.url}\">#{c.name}</a>") | join(', ') %}
-
-                    {{ 'rainlab.blog::lang.post.posted_byline' | trans({
-                        date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
-                        categories: categoryLinks
-                    }) }}
-                {% else %}
-                    {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
-                        date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
-                    }) }}
-                {% endif %}
-            </p>
-
-            <p class="excerpt">{{ post.summary | raw }}</p>
-        </li>
-    {% else %}
-        <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
-    {% endfor %}
-</ul>
-
-{% if posts.lastPage > 1 %}
-    <ul class="pagination">
-        {% if posts.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
-
-        {% for page in 1..posts.lastPage %}
-            <li class="{{ posts.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
-
-        {% if posts.lastPage > posts.currentPage %}
-            <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}
 <style>
+    article{
+        margin-top:5px;
+        margin-bottom:5px;
+    }
 
+    .entry-thumbnail img{
+        height: 200px;
+        margin:auto;
+    }
+    .entry-content{
+        height: 100px;
+        overflow: hidden;
+        margin: 5px;
+    }
+    .right-content a.btn{
+        display:block;
+    }
+/*
     .right-content{
         width:66%;
         height: 270px;
@@ -139,4 +111,6 @@ postPage = "articol"
         }
     }
 
+
+ */
 </style>
