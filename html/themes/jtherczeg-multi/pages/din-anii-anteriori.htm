@@ -1,11 +1,29 @@
 title = "din-anii-anteriori"
-url = "/din-anii-anteriori"
+url = "/din-anii-anteriori/:slug?"
 layout = "default"
 is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{:slug}}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "din-anii-anteriori"
+postPage = "articol"
 
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 0
 categoryPage = "din-anii-anteriori"
 ==
-test
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            {% component 'blogPosts' %}
+        </div>
+        <div class="col-sm-4">
+            {% component 'blogCategories' %}
+        </div>
+    </div>
+</div>

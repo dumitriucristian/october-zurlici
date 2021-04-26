@@ -1,5 +1,5 @@
-        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
-            <div class="container">
+        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top justify-content-center" role="banner">
+            <div class="container center">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -7,17 +7,31 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#home"><img src="{{ 'assets/images/logo.png'|theme }}" alt="logo"></a>
+                   <!-- <a class="navbar-brand" href="#home"><img src="{{ 'assets/images/logo.png'|theme }}" alt="logo"></a>-->
                 </div>
 
-                <div class="collapse navbar-collapse navbar-right">
+                <div class="collapse navbar-collapse justify-content-centerr">
                     <ul class="nav navbar-nav">
-                        <li class="scroll active"><a href="/">Acasa</a></li>
-                        <li class="scroll"><a href="invatatoarele-noastre">Noutati</a></li>
-                        <li class="scroll"><a href="invatatoarea-ta">Inscrie invatatoarea ta</a></li>
-                        <li class="scroll"><a href="din-anii-anteriori">Din anii anteriori</a></li>
+                        <li class="scroll active"><a href="/">Despre Campanie</a></li>
+                        <li class="scroll"><a href="{{ url('/') }}/invatatoarele-noastre">Invatatoarea Anului</a></li>
+                        <li class="scroll"><a href="{{ url('/') }}/invatatoarea-ta">Propune O Invatatoare </a></li>
+                        <li class="scroll"><a href="{{ url('/') }}/candidatii-anului">Candidatii anului</a></li>
+                        <li class="scroll"><a href="{{ url('/') }}/din-anii-anteriori">Din Anii Anteriori</a></li>
                         <li class="scroll"><a href="#portfolio">Parteneri</a></li>
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
+<style>
+    @media (max-width: 1024px) {
+        .nav>li>a{
+            padding:10px 7px;
+        }
+    }
+    @media (min-width: 768px) {
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    }
+</style>

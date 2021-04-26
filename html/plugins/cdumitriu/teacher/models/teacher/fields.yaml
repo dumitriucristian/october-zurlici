@@ -26,3 +26,11 @@ fields:
             mode: crop
             extension: auto
         type: fileupload
+    school:
+        label: Scoala
+        span: auto
+        type: text
+    city:
+        label: Oras
+        span: auto
+        type: text

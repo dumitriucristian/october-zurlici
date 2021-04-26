@@ -4,9 +4,13 @@ layout = "default"
 is_hidden = 0
 
 [blogPost]
-[blogCategories]
 slug = "{{ :slug }}"
 categoryPage = "articol"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "din-anii-anteriori"
 ==
 {% set post = blogPost.post %}
 
@@ -60,7 +64,16 @@ categoryPage = "articol"
 
     <div id="category-nav" class="col-md-4">
         <span class="top-decorator"><p>Castigatori din anii anteriori</p></span>
-        {% component 'blogCategories' %}
+        {% if blogCategories.categories|length > 0 %}
+    <ul class="category-list">
+        {% partial blogCategories ~ "::items"
+            categories = blogCategories.categories
+            currentCategorySlug = blogCategories.currentCategorySlug
+        %}
+    </ul>
+
+{% endif %}
+
     </div>
 
 

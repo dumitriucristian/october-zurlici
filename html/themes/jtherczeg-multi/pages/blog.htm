@@ -13,6 +13,11 @@ categoryPage = "blog"
 postPage = "articol"
 
 [TeacherForm]
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
 ==
 {% set posts = blogPosts.posts %}
 <div class="container">

@@ -27,3 +27,9 @@ columns:
         type: text
         searchable: true
         sortable: true
+    school:
+        label: scoala
+        type: text
+    city:
+        label: oras
+        type: text

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="contact-form">
-                    <h3>Prezinta-ne invatatoarea ta</h3>
+                    <h3>Spune-ne cateva date despre tine</h3>
                     <form id="main-contact-form" data-request="onSend" data-request-flash data-request-files>
                         <div class="form-group">
                             <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
@@ -11,18 +11,26 @@
                         <div class="form-group">
                             <input type="email" name="user-email" class="form-control" data-request-flash data-request-file placeholder="Email-ul tau" required>
                         </div>
+                        <h3>Spune-ne cateva date despre Doamna Invatatoare</h3>
                         <div class="form-group">
                             <input type="text" name="teacher-name" class="form-control" placeholder="Numele Invatatoarei" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="teacher-details" class="form-control" rows="8" placeholder="Spune-ne cateva cuvinte despre ea" required></textarea>
+                            <input type="text" name="teacher-school" class="form-control" placeholder="Scoala la care preda" required>
                         </div>
                         <div class="form-group">
+                            <input type="text" name="teacher-city" class="form-control" placeholder="Orasul in care preda" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="teacher-details" class="form-control" rows="8" placeholder="Spune-ne cateva cuvinte despre ea si impresioneaza-ne. Spune-ne, de ce crezi tu ca ea este invatatoarea anului" required></textarea>
+                        </div>
+                        <!-- <div class="form-group">
                             <input type="file" name="letter" class="form-control" placeholder="Ataseaza scrisoarea ta" accept="image/*" data-request="onImageUpload" data-request-flash data-request-files>
                         </div>
                         <div id="imageResult">No image to preview</div>
+                        -->
                         <br><br>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Trimite mesajul</button>
                     </form>
                 </div>
             </div>

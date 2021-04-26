@@ -3,3 +3,6 @@
 1.0.2:
     - 'Created table cdumitriu_teacher_details'
     - builder_table_create_cdumitriu_teacher_details.php
+1.0.3:
+    - 'Updated table cdumitriu_teacher_details'
+    - builder_table_update_cdumitriu_teacher_details.php

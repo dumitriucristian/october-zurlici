@@ -20,7 +20,7 @@
           ];
 
         }
-
+/*
         public function onImageUpload()
         {
             $image = Input::all();
@@ -30,20 +30,24 @@
             ];
 
         }
-
+*/
         public function onSend()
         {
             $userName = Input::get('user-name');
             $userEmail = Input::get('user-email');
             $teacherName = Input::get('teacher-name');
             $teacherDetails = Input::get('teacher-details');
-            $letter = Input::file('letter');
+            $teacherSchool = Input::get('teacher-school');
+            $teacherCity = Input::get('teacher-city');
+           // $letter = Input::file('letter');
             $form = Input::all();
 
             $rules = [
                 'user-name' => 'required',
                 'user-email' => 'required',
                 'teacher-name' => 'required',
+                'teacher-city' => 'required',
+                'teacher-school' => 'required',
             ];
 
             //validate user input
@@ -58,7 +62,10 @@
             $teacher->user_email = $userEmail;
             $teacher->teacher_name = $teacherName;
             $teacher->teacher_details = $teacherDetails;
-            $teacher->letter = $letter;
+            $teacher->city = $teacherDetails;
+            $teacher->school = $teacherDetails;
+            $teacher->year = 2021;
+           // $teacher->letter = $letter;
             $teacher->save();
 
             //send confirmation email
