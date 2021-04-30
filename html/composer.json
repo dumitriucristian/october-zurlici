@@ -25,7 +25,7 @@
         "source": "https://github.com/octobercms/october"
     },
     "require": {
-        "php": ">=7.2.9",
+        "php": ">=7.4",
         "october/rain": "1.1.*",
         "october/system": "1.1.*",
         "october/backend": "1.1.*",
