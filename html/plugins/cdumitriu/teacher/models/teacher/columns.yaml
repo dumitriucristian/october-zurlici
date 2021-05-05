@@ -33,3 +33,18 @@ columns:
     city:
         label: oras
         type: text
+    year:
+        label: year
+        type: number
+    teacher_city:
+        label: teacher_city
+        type: text
+    teacher_county:
+        label: teacher_county
+        type: text
+    user_surname:
+        label: user_surname
+        type: text
+    teacher_surname:
+        label: teacher_surname
+        type: text

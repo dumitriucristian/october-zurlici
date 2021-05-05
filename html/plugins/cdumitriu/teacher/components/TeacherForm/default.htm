@@ -1,10 +1,10 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="contact-form">
                     <h3>Spune-ne cateva date despre tine</h3>
-                    <form id="main-contact-form" data-request="onCreate" accept="image/*" data-request-flash data-request-files>
+                    <form id="main-contact-form" data-request="onCreate">
                         <div class="form-group">
                             <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
                         </div>
@@ -28,28 +28,27 @@
                             <input type="text" name="teacher-city" class="form-control" placeholder="Localitatea in care preda" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="teacher-city" class="form-control" placeholder="Judetul in care preda" required>
+                            <input type="text" name="teacher-county" class="form-control" placeholder="Judetul in care preda" required>
                         </div>
                         <div class="form-group">
                             <textarea
-
                                 name="teacher-details"
                                 class="form-control"
                                 rows="8"
-                                placeholder="Spune-ne cateva cuvinte despre ea si impresioneaza-ne. Spune-ne, de ce crezi tu ca ea este invatatoarea anului" required>
-
-                            </textarea>
+                                placeholder="Spune-ne cateva cuvinte despre dna Invatatoare. Spune-ne, de ce crezi tu ca ea este invatatoarea anului" required></textarea>
                         </div>
                         <!-- <div class="form-group">
                             <input type="file" name="letter" class="form-control" placeholder="Ataseaza scrisoarea ta" accept="image/*" data-request="onImageUpload" data-request-flash data-request-files>
-                        </div>
-                        <div id="imageResult">No image to preview</div>
+                            </div>
+                            <div id="imageResult">No image to preview</div>
                         -->
                         <br><br>
-
+                        <button type="submit" class="btn btn-primary" >Creeaza diploma</button>
+                        <button type="submit" class="btn btn-primary" data-request="onSend" data-request-flash>Salveaza datele</button>
+                    </form>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="contact-form">
                     <h3>Aici va fi un preview la imagine</h3>
 
@@ -58,13 +57,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">Obtine diploma</button>
+            <div class="col-sm-6">
+                <form id="second-contact-form" data-request="onSend"  data-request-files>
+
                 </form>
-            </div>
-            <div class="col-sm-4">
-                <form id="second-contact-form" data-request="onSend" data-request-flash data-request-files>
-                    <button type="submit" class="btn btn-primary">Salveaza mesajul</button>
+                <form id="second-contact-form" data-request="onSend"  data-request-files>
+                    <button type="submit" class="btn btn-primary">Downloadeaza diploma </button>
                 </form>
             </div>
         </div>

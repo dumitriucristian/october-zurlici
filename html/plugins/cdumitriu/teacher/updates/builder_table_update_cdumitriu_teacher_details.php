@@ -9,19 +9,19 @@ class BuilderTableUpdateCdumitriuTeacherDetails extends Migration
     {
         Schema::table('cdumitriu_teacher_details', function($table)
         {
-            $table->string('school')->nullable();
-            $table->string('city')->nullable();
-            $table->integer('year')->nullable();
+            $table->string('user_surname', 191)->nullable();
+            $table->string('teacher_surname', 191)->nullable();
+            $table->string('teacher_county', 191)->nullable();
         });
     }
-    
+
     public function down()
     {
         Schema::table('cdumitriu_teacher_details', function($table)
         {
-            $table->dropColumn('school');
-            $table->dropColumn('city');
-            $table->dropColumn('year');
+            $table->dropColumn('user_surname');
+            $table->dropColumn('teacher_surname');
+            $table->dropColumn('teacher_county');
         });
     }
 }

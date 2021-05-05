@@ -13,26 +13,14 @@
     class TeacherForm extends ComponentBase
     {
 
-
         public function componentDetails()
         {
           return [
               'name' => 'Teacher Form',
               'description' => 'Add teacher'
           ];
-
         }
-/*
-        public function onImageUpload()
-        {
-            $image = Input::all();
-            $file = (new File())->fromPost($image['letter']);
-            return [
-                '#imageResult' => '<img src="'.$file->getThumb(200,200, ['mode'=>'crop']). '">'
-            ];
 
-        }
-*/
         public function onCreate()
         {
             $userName = Input::get('user-name');
@@ -41,8 +29,6 @@
             $teacherDetails = Input::get('teacher-details');
             $teacherSchool = Input::get('teacher-school');
             $teacherCity = Input::get('teacher-city');
-
-           // $letter = Input::file('letter');
 
             $form = Input::all();
 
@@ -53,17 +39,48 @@
                 'teacher-city' => 'required',
                 'teacher-school' => 'required',
             ];
-          //  var_dump( storage_path('teachers/test.jpg'));
-           // die();
+
             $image = $this->generateImage($teacherDetails);
-            //$file = (new File())->fromPost($image['letter']);
-            $file = media_path('/teachers/test.jpg');//public_path('public/teachers/test.jpg');
-          //  var_dump($file); die();
+
+            $file = media_path('/teachers/test.jpg');
+            //validate user input
+            $validator = Validator::make($form,$rules);
+            if($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
             return [
                 '#imageResult' => '<img src="'.$file. '">'
             ];
 
-            //validate user input
+
+        }
+
+        public function onSend(){
+
+            $userName = Input::get('user-name');
+            $userSurname= Input::get('user-surname');
+            $userEmail = Input::get('user-email');
+            $teacherName = Input::get('teacher-name');
+            $teacherSurname = Input::get('teacher-surname');
+            $teacherDetails = Input::get('teacher-details');
+            $teacherSchool = Input::get('teacher-school');
+            $teacherCity = Input::get('teacher-city');
+            $teacherCounty = Input::get('teacher-county');
+
+            $form = Input::all();
+
+            $rules = [
+                'user-name' => 'required',
+                'user-email' => 'required',
+                'user-surname' => 'required',
+                'teacher-name' => 'required',
+                'teacher-surname' => 'required',
+                'teacher-city' => 'required',
+                'teacher-county' => 'required',
+                'teacher-school' => 'required',
+            ];
+
             $validator = Validator::make($form,$rules);
             if($validator->fails()) {
                 throw new ValidationException($validator);
@@ -72,19 +89,20 @@
             //save user data
             $teacher = new Teacher();
             $teacher->user_name = $userName;
+            $teacher->user_surname = $userSurname;
             $teacher->user_email = $userEmail;
             $teacher->teacher_name = $teacherName;
+            $teacher->teacher_surname = $teacherSurname;
             $teacher->teacher_details = $teacherDetails;
             $teacher->city = $teacherCity;
+            $teacher->teacher_county = $teacherCounty;
             $teacher->school = $teacherSchool;
             $teacher->year = 2021;
-           // $teacher->letter = $letter;
+            // $teacher->letter = $letter;
             $teacher->save();
 
-            //send confirmation email
-
             // redirect user to teacher page;
-            Flash::success("Am primit invatatoarea");
+           return Flash::success("Am primit invatatoarea");
         }
 
 
@@ -92,34 +110,23 @@
         {
             $originalImage = public_path('public/gift.jpeg');
             // create Image from file
-            $img = Image::make($originalImage);
+            $img = Image::make($originalImage)->fit(600,600);
 
+            $lines = explode("\n", wordwrap($teacherDetails, 40));
 
-                       // use callback to define details
-            /*
-            $img->text('foo', 0, 0, function($font) {
-                $font->file('foo/bar.ttf');
-                $font->size(24);
-                $font->color('#fdf6e3');
-                $font->align('center');
-                $font->valign('top');
-                $font->angle(45);
-            });
-            */
-            // draw transparent text
-            $img->text($teacherDetails, 150, 150, function($font) {
-                $font->color('#1500ff');
-                $font->size(24);
-                $font->file(storage_path('fonts/SourceSansPro-Black.ttf'));
-                $font->align('center');
-
-            });
-
+            for ($i = 0; $i < count($lines); $i++) {
+                $offset = 22 + ($i * 50);
+                $img->text($lines[$i], 300, $offset, function ($font) {
+                    $font->color('#1500ff');
+                    $font->size(24);
+                    $font->file(storage_path('fonts/SourceSansPro-Black.ttf'));
+                    $font->align('center');
+                    $font->valign('top');
+                });
+            }
             $fileName = storage_path('app/media/teachers/test.jpg');
             $img->save($fileName);
-            //var_dump($img);
+
             return $img;
         }
     }
-
-
