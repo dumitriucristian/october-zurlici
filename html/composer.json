@@ -31,7 +31,7 @@
         "october/backend": "1.1.*",
         "october/cms": "1.1.*",
         "laravel/framework": "~6.0",
-        "intervention/image":"*"
+        "intervention/image": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.4|^9.3.3",

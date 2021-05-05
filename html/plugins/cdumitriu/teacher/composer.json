@@ -1,0 +1,30 @@
+{
+    "name": "cdumitriu/teacher",
+    "type": "cdumitriu-plugin",
+    "description": "My first OctoberCMS plugin",
+    "keywords": ["october", "cms", "demo", "plugin"],
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Cristian Dumitriu",
+            "email": "dumitriucristian@yahoo.com",
+            "role": "Co-founder"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0",
+        "intervention/image": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "October\\Demo\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

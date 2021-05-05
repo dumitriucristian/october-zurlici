@@ -1,28 +1,44 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-4">
                 <div class="contact-form">
                     <h3>Spune-ne cateva date despre tine</h3>
-                    <form id="main-contact-form" data-request="onSend" data-request-flash data-request-files>
+                    <form id="main-contact-form" data-request="onCreate" accept="image/*" data-request-flash data-request-files>
                         <div class="form-group">
                             <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="user-email" class="form-control" data-request-flash data-request-file placeholder="Email-ul tau" required>
+                            <input type="text" name="user-surname" class="form-control" placeholder="Prenumele tau" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="user-email" class="form-control" data-request-flash placeholder="Email-ul tau" required>
                         </div>
                         <h3>Spune-ne cateva date despre Doamna Invatatoare</h3>
                         <div class="form-group">
-                            <input type="text" name="teacher-name" class="form-control" placeholder="Numele Invatatoarei" required>
+                            <input type="text" name="teacher-name" class="form-control" placeholder="Numele doamnei invatatoare" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="teacher-school" class="form-control" placeholder="Scoala la care preda" required>
+                            <input type="text" name="teacher-surname" class="form-control" placeholder="Prenumele doammnei invatatoare" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="teacher-city" class="form-control" placeholder="Orasul in care preda" required>
+                            <input type="text" name="teacher-school" class="form-control" placeholder="Scoala la care preda: Nr - Denumire" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="teacher-details" class="form-control" rows="8" placeholder="Spune-ne cateva cuvinte despre ea si impresioneaza-ne. Spune-ne, de ce crezi tu ca ea este invatatoarea anului" required></textarea>
+                            <input type="text" name="teacher-city" class="form-control" placeholder="Localitatea in care preda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="teacher-city" class="form-control" placeholder="Judetul in care preda" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea
+
+                                name="teacher-details"
+                                class="form-control"
+                                rows="8"
+                                placeholder="Spune-ne cateva cuvinte despre ea si impresioneaza-ne. Spune-ne, de ce crezi tu ca ea este invatatoarea anului" required>
+
+                            </textarea>
                         </div>
                         <!-- <div class="form-group">
                             <input type="file" name="letter" class="form-control" placeholder="Ataseaza scrisoarea ta" accept="image/*" data-request="onImageUpload" data-request-flash data-request-files>
@@ -30,10 +46,29 @@
                         <div id="imageResult">No image to preview</div>
                         -->
                         <br><br>
-                        <button type="submit" class="btn btn-primary">Trimite mesajul</button>
-                    </form>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-form">
+                    <h3>Aici va fi un preview la imagine</h3>
+
+                    <div id="imageResult">No image to preview</div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Obtine diploma</button>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <form id="second-contact-form" data-request="onSend" data-request-flash data-request-files>
+                    <button type="submit" class="btn btn-primary">Salveaza mesajul</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     </div>
 </div>

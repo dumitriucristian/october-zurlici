@@ -157,6 +157,7 @@ return [
         // 'Illuminate\Html\HtmlServiceProvider', // Example
 
         'System\ServiceProvider',
+        Intervention\Image\ImageServiceProvider::class
     ]),
 
     /*
@@ -193,6 +194,7 @@ return [
     'aliases' => array_merge(include(base_path('modules/system/aliases.php')), [
 
         // 'Str' => 'Illuminate\Support\Str', // Example
+        'Image' => Intervention\Image\Facades\Image::class
 
     ]),
 

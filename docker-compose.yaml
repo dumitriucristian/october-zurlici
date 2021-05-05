@@ -1,7 +1,10 @@
 version: '3'
+
 services:
+
   web:
-    image: aspendigital/octobercms:latest
+    build: ./.docker/php
+    #image: aspendigital/octobercms:latest
     ports:
       - 80:80
     depends_on:
