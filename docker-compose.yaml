@@ -21,6 +21,7 @@ services:
       - DB_DATABASE=octobercms
       - DB_USERNAME=root
       - DB_PASSWORD=root
+    container_name: octobercms_web_1
 
   mysql:
     image: mysql:5.7
