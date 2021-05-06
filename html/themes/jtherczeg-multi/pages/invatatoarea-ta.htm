@@ -5,8 +5,6 @@ description = "Blog post page"
 is_hidden = 0
 
 [TeacherForm]
-
-[teacherPage]
 ==
 <div class="container">
     <div class="section-header">
@@ -17,10 +15,6 @@ is_hidden = 0
 
 <div id="form" style="background-color:#e7e7e7; padding:25px;">
     <div class="container">
-        
-    
-        {% partial 'teacherPage::default' %}
-        {%  component 'teacherPage' %}
         <div class="row">
                 {% component 'TeacherForm' %}
         </div>
