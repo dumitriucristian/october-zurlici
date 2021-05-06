@@ -46,3 +46,15 @@ fields:
         label: 'Teacher County'
         span: auto
         type: text
+    source:
+        label: Sursa
+        span: auto
+        type: text
+    ip:
+        label: IP
+        span: auto
+        type: text
+    image:
+        label: Image
+        span: auto
+        type: text

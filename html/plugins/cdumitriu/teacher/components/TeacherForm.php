@@ -7,8 +7,8 @@
     use October\Rain\Support\Facades\Validator;
     use October\Rain\Support\Facades\Input;
     use October\Rain\Support\Facades\Flash;
-    use System\Models\File;
     use Intervention\Image\Facades\Image;
+    use Illuminate\Support\Facades\Request;
 
     class TeacherForm extends ComponentBase
     {
@@ -23,6 +23,9 @@
 
         public function onCreate()
         {
+
+
+
             $userName = Input::get('user-name');
             $userEmail = Input::get('user-email');
             $teacherName = Input::get('teacher-name');
@@ -41,7 +44,6 @@
             ];
 
             $image = $this->generateImage($teacherDetails);
-
             $file = media_path('/teachers/test.jpg');
             //validate user input
             $validator = Validator::make($form,$rules);
@@ -86,8 +88,18 @@
                 throw new ValidationException($validator);
             }
 
+            //@todo time function should be replaced with laravel time functions
+            //@todo refactor image save and name
+            //saveImage
+            $basePath = 'app/media/teachers/';
+            $customName = $teacherName .'_'. $teacherSurname.'_'.time().'.jpg';
+            $imagePath = $basePath.$customName;
+            //var_dump($imagePath); die();
+            $this->generateImage($teacherDetails, $imagePath);
+
             //save user data
             $teacher = new Teacher();
+            $teacher->image = $customName;
             $teacher->user_name = $userName;
             $teacher->user_surname = $userSurname;
             $teacher->user_email = $userEmail;
@@ -98,6 +110,7 @@
             $teacher->teacher_county = $teacherCounty;
             $teacher->school = $teacherSchool;
             $teacher->year = 2021;
+            $teacher->ip = Request::ip();
             // $teacher->letter = $letter;
             $teacher->save();
 
@@ -106,9 +119,10 @@
         }
 
 
-        private function generateImage($teacherDetails)
+        private function generateImage($teacherDetails, $imagePath=null)
         {
             $originalImage = public_path('public/gift.jpeg');
+
             // create Image from file
             $img = Image::make($originalImage)->fit(600,600);
 
@@ -124,8 +138,10 @@
                     $font->valign('top');
                 });
             }
-            $fileName = storage_path('app/media/teachers/test.jpg');
-            $img->save($fileName);
+
+
+            $fileName = (is_null($imagePath)) ? 'app/media/teachers/test.jpg' : $imagePath;
+            $img->save(storage_path($fileName));
 
             return $img;
         }

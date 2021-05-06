@@ -48,3 +48,12 @@ columns:
     teacher_surname:
         label: teacher_surname
         type: text
+    ip:
+        label: IP
+        type: text
+    source:
+        label: Sursa
+        type: text
+    image:
+        label: Image
+        type: text
