@@ -44,7 +44,7 @@
             ];
 
             $image = $this->generateImage($teacherDetails);
-            $file = media_path('/teachers/test.jpg');
+            $file = media_path('/teachers/base-image.jpg');
             //validate user input
             $validator = Validator::make($form,$rules);
             if($validator->fails()) {
@@ -140,7 +140,7 @@
             }
 
 
-            $fileName = (is_null($imagePath)) ? 'app/media/teachers/test.jpg' : $imagePath;
+            $fileName = (is_null($imagePath)) ? 'app/media/teachers/base-image.jpg' : $imagePath;
             $img->save(storage_path($fileName));
 
             return $img;
