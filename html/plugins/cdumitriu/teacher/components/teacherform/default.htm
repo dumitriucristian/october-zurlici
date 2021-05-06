@@ -4,7 +4,7 @@
             <div class="col-sm-6">
                 <div class="contact-form">
                     <h3>Spune-ne cateva date despre tine</h3>
-                    <form id="main-contact-form" data-request="onCreate">
+                    <form id="main-contact-form" data-request="onCreate" >
                         <div class="form-group">
                             <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
                         </div>
@@ -38,7 +38,7 @@
                                 placeholder="Spune-ne cateva cuvinte despre dna Invatatoare. Spune-ne, de ce crezi tu ca ea este invatatoarea anului"
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" >Creeaza diploma</button>
+                        <button type="submit" class="btn btn-primary" data-request-update="#imageResult">Creeaza diploma</button>
                         <button type="submit" class="btn btn-primary" data-request="onSend" data-request-flash>Salveaza datele</button>
                     </form>
                 </div>
