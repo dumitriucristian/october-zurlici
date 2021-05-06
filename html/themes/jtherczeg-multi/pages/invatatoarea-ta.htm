@@ -6,8 +6,6 @@ is_hidden = 0
 
 [TeacherForm]
 ==
-{% set posts = blogPosts.posts %}
-
 <div class="container">
     <div class="section-header">
         <h2 class="section-title text-center wow fadeInDown">Invatatoarea anului 2021</h2>
@@ -18,9 +16,7 @@ is_hidden = 0
 <div id="form" style="background-color:#e7e7e7; padding:25px;">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
                 {% component 'TeacherForm' %}
-            </div>
         </div>
     </div>
 </div>
