@@ -83,8 +83,8 @@
             //@todo time function should be replaced with laravel time functions
 
             //saveImage
-            $customName = $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.jpg';
-            $imagePath = strtolower( 'app/media/teachers/'.$customName);
+            $customName = strtolower( $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.jpg');
+            $imagePath = strtolower( 'app/media/teachers/').$customName;
 
             $this->generateImage($imagePath);
 
