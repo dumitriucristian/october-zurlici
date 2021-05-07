@@ -25,7 +25,7 @@
         public function componentDetails()
         {
           return [
-              'name' => 'Teacher Form',
+              'name' => 'Form',
               'description' => 'Add teacher'
           ];
         }
@@ -69,13 +69,12 @@
             $this->generateImage();
             $image =  media_path('/teachers/base-image.jpg');
             $this->page['preview_content'] = $image.'?id='.random_int(2,50);
-
+            $this->page['preview'] = true;
             return [
-                '#imageResult' => $this->renderPartial('preview')
+                '#buttons' => $this->renderPartial('@buttons'),
+                '#imageResult' => $this->renderPartial('@preview')
             ];
         }
-
-
 
         public function onSend(){
 
@@ -106,7 +105,7 @@
             $teacher->save();
 
             // redirect user to teacher page;
-            return Redirect::to('/succes?f='.$customName);
+            return Redirect::to('/succes?t='.$teacher->getKey());
         }
 
 

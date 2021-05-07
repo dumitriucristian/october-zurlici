@@ -1,10 +1,12 @@
 title = "succes"
-url = "/succes"
+url = "/succes/:teacher?"
 layout = "succes-sissi"
 description = "Pagina de succes invatatoare"
 meta_title = "succes"
 meta_description = "succes"
 is_hidden = 0
+
+[TeacherSuccess]
 ==
 <div class="container-wrapper">
     <section id="cta" class="wow fadeIn">
@@ -15,20 +17,22 @@ is_hidden = 0
         </div>
     </section><!--/#cta-->
     <div class="container">
+        {% component 'TeacherSuccess' %}
         <div class="row" style="margin-top:35px; margin-bottom:35px;">
            <div class="col-sm-6">
-                <h1 class="text-center">Invatatoarea Ana Blandiana a fost inscrisa cu succes</h1>
+                <h1 class="text-center">Invatatoarea {{teacherName}} {{teacherSurname}} a fost inscrisa cu succes in concurs </h1>
                <div style="marin-top:35px">
                    <p class="text-center"><a class="btn btn-primary btn-lg" href="https://github.com/jtherczeg/multi-theme/archive/master.zip">Salveaza imaginea</a></p>
                    <p class="text-center"><a class="btn btn-primary btn-lg" href="https://github.com/jtherczeg/multi-theme/archive/master.zip">Share facebook</a></p>
-                   <p class="text-center"><a class="btn btn-primary btn-lg" href="https://github.com/jtherczeg/multi-theme/archive/master.zip">Free Download</a></p>
+                   <p class="text-center"><a class="btn btn-primary btn-lg" href="https://github.com/jtherczeg/multi-theme/archive/master.zip">Urmareste invataorele incscrise</a></p>
                </div>
 
             </div>
 
             <div class="col-sm-6">
-                <img src="/storage/app/media/teachers/mirela_blandiana_1620369207.jpg" width="600">
+                <img src="{{image}}" width="600">
             </div>
         </div>
     </div>
 </div>
+

@@ -39,15 +39,17 @@
                                 required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" data-request-update="preview:'#imageResult'">Creeaza diploma</button>
-                        <button type="submit" class="btn btn-primary" data-request="onSend" data-request-flash>Salveaza datele</button>
+                        <div id="buttons">
+                            {% partial "@buttons"  %}
+                        </div>
+
                     </form>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="contact-form">
                     <div id="imageResult">
-                    {% partial "preview" preview_content="ceva"  %}
+                    {% partial "@preview" preview_content="" %}
                     </div>
                 </div>
             </div>
