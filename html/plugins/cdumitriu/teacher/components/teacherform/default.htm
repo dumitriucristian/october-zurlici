@@ -38,16 +38,17 @@
                                 placeholder="Spune-ne cateva cuvinte despre dna Invatatoare. Spune-ne, de ce crezi tu ca ea este invatatoarea anului"
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-request-update="#imageResult">Creeaza diploma</button>
+
+                        <button type="submit" class="btn btn-primary" data-request-update="preview:'#imageResult'">Creeaza diploma</button>
                         <button type="submit" class="btn btn-primary" data-request="onSend" data-request-flash>Salveaza datele</button>
                     </form>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="contact-form">
-                    <h3>Aici va fi un preview la imagine</h3>
-
-                    <div id="imageResult">No image to preview</div>
+                    <div id="imageResult">
+                    {% partial "preview" preview_content="ceva"  %}
+                    </div>
                 </div>
             </div>
         </div>
