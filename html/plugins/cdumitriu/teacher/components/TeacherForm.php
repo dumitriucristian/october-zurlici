@@ -22,6 +22,7 @@
         private $teacherCity;
         private $teacherCounty;
 
+
         public function componentDetails()
         {
           return [
@@ -30,38 +31,6 @@
           ];
         }
 
-        private function validateInput()
-        {
-            $this->userName = Input::get('user-name');
-            $this->userSurname= Input::get('user-surname');
-            $this->userEmail = Input::get('user-email');
-            $this->teacherName = Input::get('teacher-name');
-            $this->teacherSurname = Input::get('teacher-surname');
-            $this->teacherDetails = Input::get('teacher-details');
-            $this->teacherSchool = Input::get('teacher-school');
-            $this->teacherCity = Input::get('teacher-city');
-            $this->teacherCounty = Input::get('teacher-county');
-
-            $form = Input::all();
-
-            $rules = [
-                'user-name' => 'required',
-                'user-surname' => 'required',
-                'user-email' => 'required',
-                'teacher-name' => 'required',
-                'teacher-surname' => 'required',
-                'teacher-city' => 'required',
-                'teacher-county' => 'required',
-                'teacher-school' => 'required',
-                'teacher-details' => 'required'
-            ];
-
-            $validator = Validator::make($form,$rules);
-            if($validator->fails()) {
-                throw new ValidationException($validator);
-            }
-
-        }
 
         public function onCreate()
         {
@@ -70,6 +39,7 @@
             $image =  media_path('/teachers/base-image.jpg');
             $this->page['preview_content'] = $image.'?id='.random_int(2,50);
             $this->page['preview'] = true;
+
             return [
                 '#buttons' => $this->renderPartial('@buttons'),
                 '#imageResult' => $this->renderPartial('@preview')
@@ -102,12 +72,16 @@
             $teacher->year = 2021;
             $teacher->ip = Request::ip();
             // $teacher->letter = $letter;
+            $teacher->source = (Request::is('inscriere-sissi')) ? "sissi" : "FNG";
             $teacher->save();
 
+            //if inscriere-sissi
+            if (Request::is('inscriere-sissi')) {
+                return Redirect::to('/succes-sissi/'.$teacher->getKey());
+            }
             // redirect user to teacher page;
-            return Redirect::to('/succes?t='.$teacher->getKey());
+            return Redirect::to('/succes/'.$teacher->getKey());
         }
-
 
         private function generateImage( $imagePath=null)
         {
@@ -134,4 +108,37 @@
 
             return $img;
         }
+
+        private function validateInput()
+        {
+            $this->userName = Input::get('user-name');
+            $this->userSurname= Input::get('user-surname');
+            $this->userEmail = Input::get('user-email');
+            $this->teacherName = Input::get('teacher-name');
+            $this->teacherSurname = Input::get('teacher-surname');
+            $this->teacherDetails = Input::get('teacher-details');
+            $this->teacherSchool = Input::get('teacher-school');
+            $this->teacherCity = Input::get('teacher-city');
+            $this->teacherCounty = Input::get('teacher-county');
+
+            $form = Input::all();
+
+            $rules = [
+                'user-name' => 'required',
+                'user-surname' => 'required',
+                'user-email' => 'required',
+                'teacher-name' => 'required',
+                'teacher-surname' => 'required',
+                'teacher-city' => 'required',
+                'teacher-county' => 'required',
+                'teacher-school' => 'required',
+                'teacher-details' => 'required'
+            ];
+
+            $validator = Validator::make($form,$rules);
+            if($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+        }
+
     }
