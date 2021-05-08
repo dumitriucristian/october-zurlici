@@ -66,7 +66,7 @@
             $teacher->teacher_name = $this->teacherName;
             $teacher->teacher_surname = $this->teacherSurname;
             $teacher->teacher_details = $this->teacherDetails;
-            $teacher->city = $this->teacherCity;
+            $teacher->teacher_city = $this->teacherCity;
             $teacher->teacher_county = $this->teacherCounty;
             $teacher->school = $this->teacherSchool;
             $teacher->year = 2021;
