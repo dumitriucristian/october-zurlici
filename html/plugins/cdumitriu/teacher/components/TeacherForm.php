@@ -81,6 +81,7 @@
             }
             // redirect user to teacher page;
             return Redirect::to('/succes/'.$teacher->getKey());
+            
         }
 
         private function generateImage( $imagePath=null)
