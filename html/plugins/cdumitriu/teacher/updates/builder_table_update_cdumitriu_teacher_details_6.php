@@ -9,10 +9,12 @@ class BuilderTableUpdateCdumitriuTeacherDetails6 extends Migration
     {
         Schema::table('cdumitriu_teacher_details', function($table)
         {
-            $table->integer('year')->nullable();
+            if(!Schema::hasColumn('cdumitriu_teacher_details','year')) {
+                $table->integer('year')->nullable();
+            }
         });
     }
-    
+
     public function down()
     {
         Schema::table('cdumitriu_teacher_details', function($table)
