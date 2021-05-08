@@ -22,7 +22,7 @@ class TeacherList extends \Cms\Classes\ComponentBase
 
     protected function loadTeachers()
     {
-        return Teacher::all();
+        return Teacher::whereNotNull('image')->paginate(8);
     }
 
     public function onRun()
