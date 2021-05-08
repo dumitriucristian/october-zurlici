@@ -1,0 +1,73 @@
+title = "/nominalizarile-anului"
+url = "/nominalizarile-anului"
+layout = "default"
+description = "Aceasta pagina listeaza invatatoarele"
+is_hidden = 0
+
+[TeacherList]
+==
+{% set teachers = TeacherList.teachers %}
+<div class="container" class="text-center">
+    <div class="grid-container">
+        {% for teacher in teachers %}
+        <div class="grid-item">
+            <img class="image-grid" src="/storage/app/media/teachers/{{teacher.image}}">
+            <div class="teacher-details">{{teacher.teacher_details}} sdfsdfsdf</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                {% if teachers.previousPageUrl %}
+                <li>
+                    <a class="btn btn-primary left-btn" aria-label="Previous" href="{{teachers.previousPageUrl}}" >
+                        <span aria-hidden="true">&laquo; pagina anterioara &laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if teachers.nextPageUrl %}
+                <li><a class="btn btn-primary text-center right-btn" aria-label="Next" href="{{teachers.nextPageUrl}}">
+                    <span aria-hidden="true">&raquo; pagina urmatoare &raquo;</span></a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+<style>
+    .left-btn{
+        margin-right:3px;
+    }
+    .right-btn{
+        margin-left:3px;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill ,minmax(160px, 290px));
+        grid-template-rows: auto;
+        gap: 10px 10px;
+        margin: 2% auto;
+        justify-content: center;
+    }
+    .grid-item{
+        border: solid 1px black;
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        padding: 10px;
+        justify-content: center;
+        text-align: center;
+
+    }
+    .image-grid{
+        max-width: 270px;
+    }
+    .teacher-details{
+        height: 50px;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+
+</style>
