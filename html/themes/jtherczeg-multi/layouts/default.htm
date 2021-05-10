@@ -1,13 +1,19 @@
 description = "Sissi layout"
+
+[cookiesBar]
+[viewBag]
 ==
 <!DOCTYPE html>
 <html lang="en">
     {% partial "meta" %}
-
-
 <body id="home" class="homepage">
 
 <header id="header">
+
+{% if sgCookies.consent == 0 %}
+  {% component 'cookiesBar' %}
+{% endif %}
+
     {% partial "nav" %}
 </header><!--/header-->
 
@@ -30,6 +36,6 @@ description = "Sissi layout"
     <script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
 {% framework extras %}
 {% scripts %}
-
 </body>
+
 </html>
