@@ -12,7 +12,7 @@
         <div class="layout-row">
             <?= $this->formRender() ?>
         </div>
-
+        <?php if($this->user->hasAccess("cdumitriu.teacher")) : ?>
         <div class="form-buttons">
             <div class="loading-indicator-container">
                 <button
@@ -40,7 +40,7 @@
                     data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
                     data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
                 </button>
-
+                <?php endif ?>
                 <span class="btn-text">
                     <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('cdumitriu/teacher/teachers') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>
