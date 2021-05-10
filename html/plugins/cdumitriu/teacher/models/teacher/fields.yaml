@@ -21,20 +21,11 @@ fields:
         size: ''
         span: auto
         type: richeditor
-    letter:
-        label: Letter
-        span: auto
-        mode: image
-        useCaption: true
-        thumbOptions:
-            mode: crop
-            extension: auto
-        type: fileupload
     school:
         label: Scoala
         span: auto
         type: text
-    city:
+    teacher_city:
         label: Oras
         span: auto
         type: text
