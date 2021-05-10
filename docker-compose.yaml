@@ -25,6 +25,7 @@ services:
 
   mysql:
     image: mysql:5.7
+    command: [--ignore-db-dir=lost+found]
     ports:
       - 3306:3306
     environment:
