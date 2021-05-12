@@ -38,8 +38,6 @@ class TeacherSuccess extends ComponentBase
         }catch(\Exception $e){
 
             return Response::make('Access denied!', 403);
-
         }
-
     }
 }

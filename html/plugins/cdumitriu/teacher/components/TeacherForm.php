@@ -1,7 +1,8 @@
 <?php
     namespace Cdumitriu\Teacher\Components;
-    use cdumitriu\Teacher\Models\Teacher;
 
+
+    use cdumitriu\Teacher\Models\Teacher;
     use Cms\Classes\ComponentBase;
     use Illuminate\Support\Facades\Redirect;
     use October\Rain\Exception\ValidationException;
@@ -9,6 +10,7 @@
     use October\Rain\Support\Facades\Input;
     use Intervention\Image\Facades\Image;
     use Illuminate\Support\Facades\Request;
+
 
     class TeacherForm extends ComponentBase
     {
@@ -21,7 +23,7 @@
         private $teacherSchool;
         private $teacherCity;
         private $teacherCounty;
-
+        private $typeSissi;
 
         public function componentDetails()
         {
@@ -32,11 +34,23 @@
         }
 
 
+        private function setSissi()
+        {
+            $this->typeSissi = (Request::is('inscriere-sissi'))   ? true : false;
+        }
+        /*
+         * do not delete - required for test
+         * @todo move this into a test page
         public function onCreate()
         {
+            $this->setSissi();
             $this->validateInput();
-            $this->generateImage();
-            $image =  media_path('/teachers/base-image.jpg');
+            if($this->typeSissi) {
+                $this->generateImageSissi();
+            }else{
+                $this->generateImage();
+            }
+            $image =  ($this->typeSissi) ? media_path('/teachers/sissi_diploma.jpg') : media_path('/teachers/diploma_fng.jpg');
             $this->page['preview_content'] = $image.'?id='.random_int(2,50);
             $this->page['preview'] = true;
 
@@ -45,9 +59,11 @@
                 '#imageResult' => $this->renderPartial('@preview')
             ];
         }
+        */
 
         public function onSend(){
 
+            $this->setSissi();
             $this->validateInput();
             //@todo time function should be replaced with laravel time functions
 
@@ -55,7 +71,11 @@
             $customName = strtolower( $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.jpg');
             $imagePath = strtolower( 'app/media/teachers/').$customName;
 
-            $this->generateImage($imagePath);
+            if($this->typeSissi) {
+                $this->generateImageSissi($imagePath);
+            } else {
+                $this->generateImage($imagePath);
+            }
 
             //save user data
             $teacher = new Teacher();
@@ -72,27 +92,50 @@
             $teacher->year = 2021;
             $teacher->ip = Request::ip();
             // $teacher->letter = $letter;
-            $teacher->source = (Request::is('inscriere-sissi')) ? "sissi" : "FNG";
+            $teacher->source = ($this->typeSissi) ? "sissi" : "FNG";
             $teacher->save();
 
             //if inscriere-sissi
-            if (Request::is('inscriere-sissi')) {
+            if ($this->typeSissi) {
                 return Redirect::to('/succes-sissi/'.$teacher->getKey());
             }
             // redirect user to teacher page;
             return Redirect::to('/succes/'.$teacher->getKey());
-            
         }
 
-        private function generateImage( $imagePath=null)
+        private function generateImageSissi($imagePath=null)
         {
-            $originalImage = public_path('public/gift.jpeg');
+            $originalImage = public_path('public/sissi_diploma.jpg');
 
-            // create Image from file
-            $img = Image::make($originalImage)->fit(600,600);
+            $img = Image::make($originalImage)->fit(1024,691);
+            $img->text($this->teacherName . ' ' .$this->teacherSurname, 550, 210, function ($font) {
+                $font->color('#00193f');
+                $font->size(40);
+                $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
 
-            $lines = explode("\n", wordwrap($this->teacherDetails, 40));
+            $img->text($this->teacherSchool, 550, 375, function ($font) {
+                $font->color('#00193f');
+                $font->size(26);
+                $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
 
+            $img->text($this->userName . ' ' .$this->userSurname, 550, 450, function ($font) {
+                $font->color('#00193f');
+                $font->size(26);
+                $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
+
+
+            //$lines = explode("\n", wordwrap($this->teacherDetails, 40));
+
+            /*
             for ($i = 0; $i < count($lines); $i++) {
                 $offset = 22 + ($i * 50);
                 $img->text($lines[$i], 300, $offset, function ($font) {
@@ -102,9 +145,52 @@
                     $font->align('center');
                     $font->valign('top');
                 });
-            }
+            }*/
 
-            $fileName = (is_null($imagePath)) ? 'app/media/teachers/base-image.jpg' : $imagePath;
+
+            $fileName = (is_null($imagePath)) ? 'app/media/teachers/sissi_diploma.jpg' : $imagePath;
+            $img->save(storage_path($fileName));
+
+            return $img;
+        }
+
+        private function generateImage( $imagePath=null)
+        {
+            $originalImage = public_path('public/diploma_fng.jpg');
+
+            $img = Image::make($originalImage)->fit(800,475);
+            $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 125, function ($font) {
+                $font->color('#fffff');
+                $font->size(33);
+                $font->file(storage_path('fonts/MYRIADPRO-BOLD.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
+            $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 126, function ($font) {
+                $font->color('#fffff');
+                $font->size(33);
+                $font->file(storage_path('fonts/MYRIADPRO-BOLD.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
+
+            $img->text($this->teacherName . ' ' .$this->teacherSurname, 400, 128, function ($font) {
+                $font->color('#ee4a9a');
+                $font->size(33);
+                $font->file(storage_path('fonts/MYRIADPRO-BOLD.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
+
+            $img->text($this->teacherSchool, 400, 240, function ($font) {
+                $font->color('#ffff');
+                $font->size(22);
+                $font->file(storage_path('fonts/MYRIADPRO-SEMIBOLDIT.OTF'));
+                $font->align('center');
+                $font->valign('top');
+            });
+
+            $fileName = (is_null($imagePath)) ? 'app/media/teachers/diploma_fng.jpg' : $imagePath;
             $img->save(storage_path($fileName));
 
             return $img;
@@ -141,5 +227,4 @@
                 throw new ValidationException($validator);
             }
         }
-
     }

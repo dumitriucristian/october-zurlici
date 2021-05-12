@@ -1,10 +1,11 @@
-<div class="container-wrapper">
+{% set activePage = 'sissi' %}
+<div class="container-wrapper" xmlns="http://www.w3.org/1999/html">
     <div class="container">
         <form id="main-contact-form" data-request="onSend">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="contact-form">
-                        <h3>Spune-ne cateva date despre tine</h3>
+                        <h4 class="text-center">Spune-ne cateva date despre tine</h4>
                         <div class="form-group">
                             <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
                         </div>
@@ -14,7 +15,7 @@
                         <div class="form-group">
                             <input type="email" name="user-email" class="form-control" data-request-flash placeholder="Email-ul tau" required>
                         </div>
-                        <h3>Spune-ne cateva date despre Doamna Invatatoare</h3>
+                        <h4 class="text-center">Spune-ne cateva date despre Doamna Invatatoare</h4>
                         <div class="form-group">
                             <input type="text" name="teacher-name" class="form-control" placeholder="Numele doamnei invatatoare" required>
                         </div>
@@ -47,26 +48,26 @@
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Inscrie invatatoarea ta</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Inscrie invatatoare ta</button>
                     </div>
                 </div>
                 <!-- do not del required for test to be moved
-                           <div class="col-sm-6">
-                               <div class="contact-form">
-                                   <div id="imageResult" >
-                                       {% partial "@preview" preview_content='' %}
-                                   </div>
-                               </div>
-                           </div>
-                           -->
+                <div class="col-sm-6">
+                    <div class="contact-form">
+                        <div id="imageResult" >
+                            {% partial "@preview" preview_content='' %}
+                        </div>
+                    </div>
+                </div>
+                -->
                 <div class="col-sm-6">
                     <div class="contact-form">
                         <div id="imageResult" >
                             <h4 class="text-center">Te rugam, verifica corectitudinea datelor.</h4>
-                            <img src="/storage/app/media/teachers/diploma_fng_original.jpg" >
-                            <div id="invatatoare-mirela" class="font-mirela">Numele dnei/dnl-ui invatator</div>
+                            <img src="/storage/app/media/teachers/sissi_diploma_original.jpg">
+                            <div id="invatatoare-mirela" class="font-mirela">Numele dnei/dnui invatator</div>
                             <div id="parinte-mirela" class="font-mirela">Numele tau</div>
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,7 +85,7 @@
 
     #parinte-mirela{
         position: absolute;
-        top: 60%;
+        top: 67%;
 
     }
 
@@ -103,7 +104,7 @@
             text-align: center;
             width: 80%;
             font-size: 2.2vh;
-            color: white;
+            color: black;
             font-weight: bold;
             left: 10%;
         }
@@ -114,7 +115,7 @@
             text-align: center;
             width: 80%;
             font-size: 1.3vh;
-            color: white;
+            color: black;
             font-weight: bold;
             left: 10%;
         }

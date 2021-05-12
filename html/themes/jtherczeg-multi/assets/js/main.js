@@ -1,4 +1,50 @@
+function getUserFullName(name, surname){
+    return name + ' ' + surname;
+}
+
 jQuery(function($) {'use strict';
+    $(document).ready(function() {
+
+        let username ='';
+        let usersurname = '';
+        let teachername = '';
+        let teachersurname = '';
+
+        let parinte = $("#parinte-mirela");
+        let teacher = $("#invatatoare-mirela");
+        let userNameInput = $("input[name='user-name']");
+        let userSurnameInput = $("input[name='user-surname']");
+        let teacherNameInput =  $("input[name='teacher-name']");
+        let teacherSurnameInput =  $("input[name='teacher-surname']");
+
+        userNameInput.keyup(function(){
+            username = userNameInput.val();
+             parinte.empty();
+             parinte.html(getUserFullName(username,usersurname));
+        });
+
+
+        userSurnameInput.keyup(function(){
+            usersurname = userSurnameInput.val();
+            parinte.empty();
+            parinte.html(getUserFullName(username,usersurname));
+        });
+
+
+        teacherNameInput.keyup(function(){
+            teachername = teacherNameInput.val();
+            teacher.empty();
+            teacher.html(getUserFullName(teachername,teachersurname));
+        });
+
+
+        teacherSurnameInput.keyup(function(){
+            teachersurname = teacherSurnameInput.val();
+            teacher.empty();
+            teacher.html(getUserFullName(teachername, teachersurname));
+        });
+
+    });
 
 	// Navigation Scroll
 	$(window).scroll(function(event) {

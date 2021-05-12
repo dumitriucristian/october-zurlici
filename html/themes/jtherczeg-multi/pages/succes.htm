@@ -10,23 +10,26 @@ is_hidden = 0
 ==
 <div class="container-wrapper">
 
-    {% partial 'cta1' %}
-   <!--/#cta-->
+    {% partial 'cta3' %}
+
     <div class="container">
         {% component 'TeacherSuccess' %}
         <div class="row" style="margin-top:35px; margin-bottom:35px;">
-           <div class="col-sm-6">
-             <!-- verifica daca utilizatorul vine din pagina -->
-            <h1 class="text-center">Invatatoarea {{teacherName}} {{teacherSurname}} a fost inscrisa cu succes in concurs </h1>
-           <h2>Daca doresti sa ii faci cunoscut gestul tau, ii poti oferii diploma de apreciere.</h2>
-           <div style="marin-top:35px">
-               <p class="text-center"><a class="btn btn-primary btn-lg" href="{{image}}" download>Descarca Diploma</a></p>
-               <p class="text-center"><a class="btn btn-primary btn-lg" href="/nominalizarile-anului">Aici poti vedea toate nominalizarile anului</a></p>
-           </div>
-        </div>
-        <div class="col-sm-6">
-            <img src="{{image}}" width="600">
-        </div>
+            <div class="col-sm-6 text-center">
+                <!-- verifica daca utilizatorul vine din pagina -->
+                <br>
+                <h3 >Felicitari, ai nominalizat invatatoarea cu succes!</h3><br>
+                <h4>Daca doresti sa ii faci cunoscut gestul tau, ii poti oferi o diploma de apreciere.</h4>
+                <br>
+                <div style="marin-top:35px">
+                   <!-- <p class="text-center"><a class="btn btn-primary" href="/nominalizarile-anului">Vezi si alte nominalizari</a></p>-->
+                    <p class="text-center"><a class="btn btn-primary" href="{{image}}" download>Descarca diploma</a></p>
+                </div>
+            </div>
+            <br>
+            <div class="col-sm-6">
+                <img src="{{image}}" style="width:100%; margin:auto;">
+            </div>
         </div>
     </div>
 </div>
