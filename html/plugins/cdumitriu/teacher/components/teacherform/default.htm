@@ -1,3 +1,8 @@
+function onStart()
+{
+    $this->addJs('assets/js/your.js');
+}
+==
 <div class="container-wrapper">
     <div class="container">
         <form id="main-contact-form" data-request="onCreate" >
@@ -39,23 +44,64 @@
                                 placeholder="Spune-ne cateva cuvinte despre dna Invatatoare. Spune-ne, de ce crezi tu ca ea este invatatoarea anului"
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-sm" data-request-update="preview:'#imageResult'">Creeaza diploma</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm" data-request-update="preview:'#imageResult'">Inscrie invatatoarea</button>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="contact-form">
                         <div id="imageResult" >
-                        {% partial "@preview" preview_content="" %}
-                        </div>
-                        <div id="buttons">
-                            {% partial "@buttons"  %}
-                        </div>
+                            <img src="/storage/app/media/teachers/Diploma_re.jpg" >
+                            <div id="invatatoare-mirela" class="font-mirela">Crinela Mariuca Zambaccian</div>
+                            <div id="parinte-mirela" class="font-mirela">Ana Blandiana Constantinescu Maria</div>
+                       </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
 <style>
 
+
+
+    #invatatoare-mirela{
+        position: absolute;
+        top: 35%;
+
+    }
+
+    #parinte-mirela{
+        position: absolute;
+        top: 50%;
+    }
+
+    #imageResult img{
+        position:relative;
+        width: 100%;
+        margin-top: 25px;
+
+    }
+
+    @media screen and (min-width: 601px) {
+        .font-mirela{
+            text-align: center;
+            width: 80%;
+            font-size: 3.2vh;
+            color: white;
+            font-weight: bold;
+            left: 10%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .font-mirela{
+            text-align: center;
+            width: 80%;
+            font-size: 1.9vh;
+            color: white;
+            font-weight: bold;
+            left: 10%;
+        }
+    }
 </style>
