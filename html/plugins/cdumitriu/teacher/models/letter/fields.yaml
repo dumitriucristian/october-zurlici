@@ -1,0 +1,38 @@
+fields:
+    teacher_name:
+        label: 'Teacher Name'
+        span: auto
+        type: text
+    teacher_surname:
+        label: 'Teacher Surname'
+        span: auto
+        type: text
+    student_name:
+        label: 'Student name'
+        span: auto
+        type: text
+    student_surname:
+        label: 'Student surname'
+        span: auto
+        type: text
+    apreciation:
+        label: Appreciation
+        span: auto
+        type: text
+    letter:
+        label: Letter
+        size: ''
+        span: auto
+        type: textarea
+    file:
+        label: 'file name'
+        span: auto
+        type: text
+    ip:
+        label: Ip
+        span: auto
+        type: text
+    sursa:
+        label: Source
+        span: auto
+        type: text

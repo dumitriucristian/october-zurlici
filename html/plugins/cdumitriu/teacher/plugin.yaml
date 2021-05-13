@@ -9,3 +9,8 @@ navigation:
         label: Teachers
         url: cdumitriu/teacher/teachers
         icon: icon-life-ring
+        sideMenu:
+            side-menu-item:
+                label: Letters
+                url: cdumitriu/teacher/letters
+                icon: icon-envelope

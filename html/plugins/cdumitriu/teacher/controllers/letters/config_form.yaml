@@ -1,0 +1,11 @@
+name: Letters
+modelClass: cdumitriu\Teacher\Models\Letter
+form: $/cdumitriu/teacher/models/letter/fields.yaml
+defaultRedirect: cdumitriu/teacher/letters
+create:
+    redirect: 'cdumitriu/teacher/letters/update/:id'
+    redirectClose: cdumitriu/teacher/letters
+update:
+    redirect: cdumitriu/teacher/letters
+    redirectClose: cdumitriu/teacher/letters
+preview: {  }

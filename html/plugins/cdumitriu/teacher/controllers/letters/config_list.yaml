@@ -1,7 +1,7 @@
-title: 'cdumitriu.teacher::lang.plugin.name'
-modelClass: cdumitriu\Teacher\Models\Teacher
-list: $/cdumitriu/teacher/models/teacher/columns.yaml
-recordUrl: 'cdumitriu/teacher/teachers/update/:id'
+title: Letters
+modelClass: cdumitriu\Teacher\Models\Letter
+list: $/cdumitriu/teacher/models/letter/columns.yaml
+recordUrl: 'cdumitriu/teacher/letters/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
 showSetup: true

@@ -1,4 +1,4 @@
-name: Teachers
+name: Teacher
 modelClass: cdumitriu\Teacher\Models\Teacher
 form: $/cdumitriu/teacher/models/teacher/fields.yaml
 defaultRedirect: cdumitriu/teacher/teachers

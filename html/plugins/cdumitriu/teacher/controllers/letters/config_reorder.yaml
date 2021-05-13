@@ -1,0 +1,4 @@
+title: Letters
+modelClass: cdumitriu\Teacher\Models\Letter
+toolbar:
+    buttons: reorder_toolbar
