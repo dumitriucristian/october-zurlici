@@ -1,5 +1,5 @@
 function getUserFullName(name, surname){
-    return name + ' ' + surname;
+    return name + '  ' + surname;
 }
 
 jQuery(function($) {'use strict';
