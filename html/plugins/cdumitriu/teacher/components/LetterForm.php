@@ -31,10 +31,7 @@ class LetterForm extends ComponentBase
     }
 
 
-    private function setSissi()
-    {
-        $this->typeSissi = (Request::is('inscriere-sissi'))   ? true : false;
-    }
+
     /*
      * do not delete - required for test
      * @todo move this into a test page
@@ -43,7 +40,7 @@ class LetterForm extends ComponentBase
 
     public function onCreate()
     {
-        $this->setSissi();
+
         $this->validateInput();
         $this->generateImageSissi();
 
@@ -67,84 +64,78 @@ class LetterForm extends ComponentBase
         $customName = strtolower( $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.jpg');
         $imagePath = strtolower( 'app/media/teachers/').$customName;
 
-        if($this->typeSissi) {
-            $this->generateImageSissi($imagePath);
-        } else {
-            $this->generateImage($imagePath);
-        }
+
+        $this->generateImageSissi($imagePath);
+
 
         //save user data
         $letter = new Letter();
-        $teacher->image = $customName;
-        $teacher->user_name = $this->userName;
-        $teacher->user_surname = $this->userSurname;
-        $teacher->user_email = $this->userEmail;
-        $teacher->teacher_name = $this->teacherName;
-        $teacher->teacher_surname = $this->teacherSurname;
-        $teacher->teacher_details = $this->teacherDetails;
-        $teacher->teacher_city = $this->teacherCity;
-        $teacher->teacher_county = $this->teacherCounty;
-        $teacher->school = $this->teacherSchool;
-        $teacher->year = 2021;
-        $teacher->ip = Request::ip();
+        $letter->image = $customName;
+        $letter->student_name = $this->studentName;
+        $letter->student_surname = $this->studentSurname;
+        $letter->teacher_name = $this->teacherName;
+        $letter->teacher_surname = $this->teacherSurname;
+        $letter->appreciation = $this->subject;
+        $letter->letter = $this->letter;
+        $letter->teacher_county = $this->teacherCounty;
+
+        $letter->ip = Request::ip();
         // $teacher->letter = $letter;
-        $teacher->source = ($this->typeSissi) ? "sissi" : "FNG";
-        $teacher->save();
+        $letter->source = ($this->typeSissi) ? "sissi" : "FNG";
+        $letter->save();
 
         //if inscriere-sissi
         if ($this->typeSissi) {
-            return Redirect::to('/succes-sissi/'.$teacher->getKey());
+            return Redirect::to('/succes-sissi/'.$letter->getKey());
         }
         // redirect user to teacher page;
-        return Redirect::to('/succes/'.$teacher->getKey());
+        return Redirect::to('/succes/'.$letter->getKey());
     }
 
     private function generateImageSissi($imagePath=null)
     {
         $originalImage = public_path('public/scrisoare.png');
 
-        $img = Image::make($originalImage)->fit(544,768);
-        $img->text($this->teacherName . ' ' .$this->teacherSurname, 550, 210, function ($font) {
+        $img = Image::make($originalImage)->fit(610,768);
+        $img->text($this->teacherName . ' ' .$this->teacherSurname, 260, 700, function ($font) {
             $font->color('#00193f');
             $font->size(40);
-            $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
-
-        $img->text($this->teacherSchool, 550, 375, function ($font) {
+        $img->text($this->studentName . ' ' .$this->studentSurname, 320, 110, function ($font) {
             $font->color('#00193f');
-            $font->size(26);
-            $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
+            $font->size(40);
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
-
-        $img->text($this->userName . ' ' .$this->userSurname, 550, 450, function ($font) {
+        $img->text($this->appreciation, 230, 190, function ($font) {
             $font->color('#00193f');
-            $font->size(26);
-            $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
+            $font->size(40);
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
 
 
-        //$lines = explode("\n", wordwrap($this->teacherDetails, 40));
+        $lines = explode("\n", wordwrap($this->letter, 45));
 
-        /*
         for ($i = 0; $i < count($lines); $i++) {
-            $offset = 22 + ($i * 50);
-            $img->text($lines[$i], 300, $offset, function ($font) {
-                $font->color('#1500ff');
-                $font->size(24);
-                $font->file(storage_path('fonts/SourceSansPro-Black.ttf'));
+            $offset = 240 + ($i * 30);
+
+            $img->text($lines[$i], 330, $offset, function ($font) {
+                $font->color('#00193f');
+                $font->size(22);
+                $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
                 $font->align('center');
                 $font->valign('top');
             });
-        }*/
+        }
 
 
-        $fileName = (is_null($imagePath)) ? 'app/media/teachers/sissi_diploma.jpg' : $imagePath;
+        $fileName = (is_null($imagePath)) ? 'app/media/teachers/scrisoare.png' : $imagePath;
         $img->save(storage_path($fileName));
 
         return $img;
@@ -158,14 +149,14 @@ class LetterForm extends ComponentBase
         $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 125, function ($font) {
             $font->color('#fffff');
             $font->size(33);
-            $font->file(storage_path('fonts/MYRIADPRO-BOLD.OTF'));
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
         $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 126, function ($font) {
             $font->color('#fffff');
             $font->size(33);
-            $font->file(storage_path('fonts/MYRIADPRO-BOLD.OTF'));
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
@@ -173,7 +164,7 @@ class LetterForm extends ComponentBase
         $img->text($this->teacherName . ' ' .$this->teacherSurname, 400, 128, function ($font) {
             $font->color('#ee4a9a');
             $font->size(33);
-            $font->file(storage_path('fonts/MYRIADPRO-BOLD.OTF'));
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
@@ -181,7 +172,7 @@ class LetterForm extends ComponentBase
         $img->text($this->teacherSchool, 400, 240, function ($font) {
             $font->color('#ffff');
             $font->size(22);
-            $font->file(storage_path('fonts/MYRIADPRO-SEMIBOLDIT.OTF'));
+            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
@@ -194,28 +185,22 @@ class LetterForm extends ComponentBase
 
     private function validateInput()
     {
-        $this->userName = Input::get('user-name');
-        $this->userSurname= Input::get('user-surname');
-        $this->userEmail = Input::get('user-email');
+        $this->studentName = Input::get('student-name');
+        $this->studentSurname= Input::get('student-surname');
         $this->teacherName = Input::get('teacher-name');
         $this->teacherSurname = Input::get('teacher-surname');
-        $this->teacherDetails = Input::get('teacher-details');
-        $this->teacherSchool = Input::get('teacher-school');
-        $this->teacherCity = Input::get('teacher-city');
-        $this->teacherCounty = Input::get('teacher-county');
+        $this->appreciation = Input::get('subject');
+        $this->letter = Input::get('letter');
 
         $form = Input::all();
 
         $rules = [
-            'user-name' => 'required',
-            'user-surname' => 'required',
-            'user-email' => 'required',
+            'student-name' => 'required',
+            'student-surname' => 'required',
             'teacher-name' => 'required',
             'teacher-surname' => 'required',
-            'teacher-city' => 'required',
-            'teacher-county' => 'required',
-            'teacher-school' => 'required',
-            'teacher-details' => 'required'
+            'subject' => 'required',
+            'letter' => 'required'
         ];
 
         $validator = Validator::make($form,$rules);
