@@ -1,21 +1,34 @@
-description = "Default layout"
+description = "default layout"
+
+[viewBag]
+
+[cookiesBar]
+
+[staticPage]
+useContent = 1
+default = 0
 ==
 <!DOCTYPE html>
 <html lang="en">
 {% partial "meta" %}
-
-
 <body id="home" class="homepage">
 
 <header id="header">
+
     {% if sgCookies.consent == 0 %}
         {% component 'cookiesBar' %}
     {% endif %}
+
     {% partial "nav" %}
-
 </header><!--/header-->
-
-{% page %}
+<div class="container">
+    <div class="col-md-12">
+        <div class="section-header">
+            <h3 class="section-title text-center wow fadeInDown">{{page.title}}</h3>
+        </div>
+        {% page %}
+    </div>
+</div>
 
 <footer id="footer">
     {% partial "footer" %}
@@ -34,6 +47,6 @@ description = "Default layout"
 <script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
 {% framework extras %}
 {% scripts %}
-
 </body>
+
 </html>
