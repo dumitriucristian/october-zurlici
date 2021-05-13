@@ -3,6 +3,67 @@ function getUserFullName(name, surname){
 }
 
 jQuery(function($) {'use strict';
+    //form letter
+    $(document).ready(function() {
+        let teachername = '';
+        let teachersurname = '';
+        let studentname = '';
+        let studentsurname = '';
+        let subject = '';
+        let letter = '';
+
+        let studentContainer = $("#student-mirela");
+        let subjectContainer = $("#subject");
+        let textContainer = $("#parinte-mirela");
+        let teacherContainer = $("#invatatoare-mirela");
+
+        let teacherNameInput = $("input[name='teacher-name']");
+        let teacherSurnameInput = $("input[name='teacher-surname']");
+        let studentNameInput =  $("input[name='student-name']");
+        let studentSurnameInput =  $("input[name='student-surname']");
+        let subjectInput =  $("input[name='subject']");
+        let letterInput =  $("textarea#letter");
+
+        studentNameInput.keyup(function(){
+
+            studentname = studentNameInput.val();
+            studentContainer.empty();
+            studentContainer.html(getUserFullName(studentname,studentsurname));
+        });
+
+        studentSurnameInput.keyup(function(){
+            studentsurname = studentSurnameInput.val();
+            studentContainer.empty();
+            studentContainer.html(getUserFullName(studentname,studentsurname));
+        });
+
+        teacherNameInput.keyup(function(){
+            teachername = teacherNameInput.val();
+            teacherContainer.empty();
+            teacherContainer.html(getUserFullName(teachername,teachersurname));
+        });
+
+        teacherSurnameInput.keyup(function(){
+            teachersurname = teacherSurnameInput.val();
+            teacherContainer.empty();
+            teacherContainer.html(getUserFullName(teachersurname,teachersurname));
+        });
+
+        subjectInput.keyup(function(){
+            subject = subjectInput.val();
+            subjectContainer.empty();
+            subjectContainer.html(subject);
+        });
+
+        letterInput.keyup(function(){
+            letter = letterInput.val();
+            textContainer.empty();
+            textContainer.html(letter);
+        });
+
+
+    });
+    //form teacher
     $(document).ready(function() {
 
         let username ='';

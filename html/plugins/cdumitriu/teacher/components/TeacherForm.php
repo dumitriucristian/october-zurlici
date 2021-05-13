@@ -28,7 +28,7 @@
         public function componentDetails()
         {
           return [
-              'name' => 'Form',
+              'name' => 'Teacher Form',
               'description' => 'Add teacher'
           ];
         }
