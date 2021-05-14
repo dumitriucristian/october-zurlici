@@ -6,13 +6,25 @@ is_hidden = 0
 
 [TeacherList]
 ==
+{% partial "cta2-fng-no-button.htm" %}
 {% set teachers = TeacherList.teachers %}
 <div class="container" class="text-center">
     <div class="grid-container">
         {% for teacher in teachers %}
         <div class="grid-item">
-            <img class="image-grid" src="/storage/app/media/teachers/{{teacher.image}}">
-            <div class="teacher-details">{{teacher.teacher_details}} sdfsdfsdf</div>
+            <div class="flex-header">
+                <div class="name-label">Nume Invatator</div>
+                <div class="name-value">{{teacher.teacher_name}} {{teacher.teacher_surname}} </div>
+            </div>
+            <img class="image-grid" src="{{'/assets/images/card_header.jpg'|theme}}">
+            <div class="flex-header">
+                <div class="name-label" >Nume parinte</div>
+                <div class="name-value">{{teacher.user_name}} {{teacher.user_surname}} </div>
+            </div>
+
+            <div>
+                <div class="teacher-details">{{teacher.teacher_details}} </div>
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -37,6 +49,27 @@ is_hidden = 0
     </div>
 </div>
 <style>
+    .name-label{
+        color: #ba62bb;
+        padding: 0 6px;
+        background-color: #ffffffeb;
+    }
+    .name-value{
+        font-size: 18px;
+        text-align: left;
+        color: #bb62ac;
+        padding: 0 6px;
+        background-color: white;
+    }
+    .flex-header{
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        background-color: green;
+        font-weight: bold;
+        justify-content: space-around;
+        text-align: left;
+    }
     .left-btn{
         margin-right:3px;
     }
@@ -52,21 +85,28 @@ is_hidden = 0
         justify-content: center;
     }
     .grid-item{
-        border: solid 1px black;
+        border: solid 1px #d6d6d6;
         display: grid;
-        grid-template-rows: 2fr 1fr;
+        grid-template-rows: auto;
         padding: 10px;
         justify-content: center;
         text-align: center;
+        border-radius: 10px;
 
     }
     .image-grid{
         max-width: 270px;
+        margin: 14px 0px;
+
+
+
+
     }
     .teacher-details{
-        height: 50px;
+        height: 120px;
         font-size: 1em;
         line-height: 1.2em;
+        padding-top: 15px;
     }
 
 

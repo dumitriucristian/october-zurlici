@@ -31,7 +31,6 @@ class LetterForm extends ComponentBase
     }
 
 
-
     /*
      * do not delete - required for test
      * @todo move this into a test page
@@ -63,10 +62,7 @@ class LetterForm extends ComponentBase
         //saveImage
         $customName = strtolower( $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.jpg');
         $imagePath = strtolower( 'app/media/teachers/').$customName;
-
-
         $this->generateImageSissi($imagePath);
-
 
         //save user data
         $letter = new Letter();
@@ -97,25 +93,25 @@ class LetterForm extends ComponentBase
         $originalImage = public_path('public/scrisoare.png');
 
         $img = Image::make($originalImage)->fit(610,768);
-        $img->text($this->teacherName . ' ' .$this->teacherSurname, 260, 700, function ($font) {
-            $font->color('#00193f');
-            $font->size(40);
+        $img->text($this->teacherName . ' ' .$this->teacherSurname, 120, 700, function ($font) {
+            $font->color('#000');
+            $font->size(20);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
+            $font->align('left');
             $font->valign('top');
         });
-        $img->text($this->studentName . ' ' .$this->studentSurname, 320, 110, function ($font) {
-            $font->color('#00193f');
-            $font->size(40);
+        $img->text($this->studentName . ' ' .$this->studentSurname, 120, 110, function ($font) {
+            $font->color('#000');
+            $font->size(30);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
+            $font->align('left');
             $font->valign('top');
         });
-        $img->text($this->appreciation, 230, 190, function ($font) {
-            $font->color('#00193f');
-            $font->size(40);
+        $img->text($this->appreciation, 120, 190, function ($font) {
+            $font->color('#000');
+            $font->size(20);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
+            $font->align('left');
             $font->valign('top');
         });
 
@@ -125,11 +121,11 @@ class LetterForm extends ComponentBase
         for ($i = 0; $i < count($lines); $i++) {
             $offset = 240 + ($i * 30);
 
-            $img->text($lines[$i], 330, $offset, function ($font) {
-                $font->color('#00193f');
+            $img->text($lines[$i], 120, $offset, function ($font) {
+                $font->color('#000');
                 $font->size(22);
                 $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-                $font->align('center');
+                $font->align('left');
                 $font->valign('top');
             });
         }
@@ -150,14 +146,14 @@ class LetterForm extends ComponentBase
             $font->color('#fffff');
             $font->size(33);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
+            $font->align('left');
             $font->valign('top');
         });
         $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 126, function ($font) {
             $font->color('#fffff');
             $font->size(33);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
+            $font->align('left');
             $font->valign('top');
         });
 
@@ -165,7 +161,7 @@ class LetterForm extends ComponentBase
             $font->color('#ee4a9a');
             $font->size(33);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
+            $font->align('left');
             $font->valign('top');
         });
 

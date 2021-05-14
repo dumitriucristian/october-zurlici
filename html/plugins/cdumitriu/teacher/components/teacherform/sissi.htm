@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="contact-form">
-                        <h4 class="text-center">Spune-ne cateva date despre tine</h4>
+                        <h4 class="text-center">Scrie-ne câteva date despre tine</h4>
                         <div class="form-group">
                             <input type="text" name="user-name" class="form-control" placeholder="Numele tau" required>
                         </div>
@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <input type="email" name="user-email" class="form-control" data-request-flash placeholder="Email-ul tau" required>
                         </div>
-                        <h4 class="text-center">Spune-ne cateva date despre Doamna Invatatoare</h4>
+                        <h4 class="text-center">Scrie-ne câteva date despre Doamna Invățătoare</h4>
                         <div class="form-group">
                             <input type="text" name="teacher-name" class="form-control" placeholder="Numele doamnei invatatoare" required>
                         </div>
@@ -43,12 +43,11 @@
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                             <label class="form-check-label" for="exampleCheck1">Am citit
-                                <a href="#">conditiile de inscriere</a> si
-                                <a href="#">regulamentul concursului</a> si sunt de acord.
+                                <a href="{{'assets/docs/regulament_invatatoarea_anului.pdf'|theme}}" target="_blank">regulamentul campaniei</a> si sunt de acord.
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Inscrie invatatoare</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Înscrie Învățătoarea </button>
                     </div>
                 </div>
                 <!-- do not del required for test to be moved
@@ -77,7 +76,7 @@
 <style>
     #invatatoare-mirela{
         position: absolute;
-        top: 40%;
+        top: 35%;
         text-shadow: white -1px -2px 2px;
         font-weight: bold;
         color: black;
@@ -85,7 +84,7 @@
 
     #parinte-mirela{
         position: absolute;
-        top: 67%;
+        top: 62%;
 
     }
 
@@ -119,6 +118,19 @@
             font-weight: bold;
             left: 10%;
         }
+        #invatatoare-mirela{
+            position: absolute;
+            top: 44%;
+            text-shadow: white -1px -2px 2px;
+            font-weight: bold;
+            color: black;
+        }
+        #parinte-mirela{
+            position: absolute;
+            top: 65%;
+
+        }
+
     }
 </style>
 
