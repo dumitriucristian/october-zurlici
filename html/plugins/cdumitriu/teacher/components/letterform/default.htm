@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="contact-form">
-                        <h3>Trimite o scrisoare de apreciere</h3>
+                        <h3 class="text-center">Compune o scrisoare de apreciere</h3>
                         <div class="form-group">
                             <input type="text" name="teacher-name" class="form-control" placeholder="Numele tau" required>
                         </div>
@@ -13,7 +13,7 @@
                             <input type="text" name="teacher-surname" class="form-control" placeholder="Prenumele tau" required>
                         </div>
 
-                        <h3>Spune-ne cateva date despre elevul tau</h3>
+                        <h3 class="text-center">Spune-ne câteva date despre elevul tau</h3>
                         <div class="form-group">
                             <input type="text" name="student-name" class="form-control" placeholder="Numele elevului tau" required>
                         </div>
@@ -21,7 +21,7 @@
                             <input type="text" name="student-surname" class="form-control" placeholder="Prenumele elevului tau" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" class="form-control" maxlength="50" placeholder="un subiect gen: Te apreciez pentru ca citesti foarte mult" required>
+                            <input type="text" name="subject" class="form-control" maxlength="50" placeholder="Subiectul pe scurt: Te apreciez pentru ca citesti foarte mult" required>
                         </div>
 
                         <div class="form-group">
@@ -34,15 +34,16 @@
                                 placeholder="Scrie textul tau de apreciere"
                                 required>Textul tau de apreciere</textarea>
                         </div>
+                        <label> Scrisoarea nu va fi facuta publica. O poti descarca si o poti oferi elevului.</label>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+
                             <label class="form-check-label" for="exampleCheck1">Am citit
-                                <a href="#">conditiile de inscriere</a> si
-                                <a href="#">regulamentul concursului</a> si sunt de acord.
+                                <a href="{{'assets/docs/regulament_invatatoarea_anului.pdf'|theme}}">regulamentul campaniei</a> si sunt de acord.
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Trimite</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Previzualizeaza scrisoarea</button>
                     </div>
                 </div>
                 <!--do not del required for test to be moved -->
@@ -75,7 +76,7 @@
         position: absolute;
         width: 64%;
         top: 27%;
-        left: 26%;
+        left: 21%;
         font-family: 'Dancing Script', cursive;
         font-size: 2vh;
         color: black;
@@ -97,10 +98,10 @@
 
     #parinte-mirela{
         position: absolute;
-        top: 17%;
+        top: 38%;
         width: 73%;
         font-family: 'Dancing Script', cursive;
-        font-size: 2.4vh;
+        font-size: 2.3vh;
         color: black;
         left: 20%;
         text-align: left;
@@ -114,7 +115,7 @@
         font-family: 'Dancing Script', cursive;
         font-size: 2.8vh;
         color: black;
-        left: 23%;
+        left: 20%;
         text-align: left;
         font-weight: bold;
     }

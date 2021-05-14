@@ -1,4 +1,6 @@
+[viewBag]
 ==
+<?php
 function onStart()
 {
     $lastday = strtotime('16 June 2021');
@@ -6,13 +8,14 @@ function onStart()
     $days = floor( ($lastday - $today)/86400);
     $this['days'] = $days;
 }
+?>
 ==
 <section id="cta2" style="padding:0;">
     <div class="container" >
-        <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">Au mai ramas {{days}} zile pana la alegerea castigatorului</h2>
-        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">Trimite-ne nominalizarea ta, spune-ne de ce este cea mai buna invatatoare din lume si noi o premiem</p>
+        <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">Au mai rămas {{days}} zile pana la alegerea câștigătorului.</h2>
+        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">Trimite nominalizarea ta. Scrie-ne de ce crezi că merită titlul de Învățătoarea Anului și poate fi chiar ea aleasă câștigătoare in 2021.</p>
         <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
-            <a class="btn btn-primary btn-lg" href="{{'/inscriere'}}">Trimite nominalizarea ta</a>
+            <a class="btn btn-primary btn-lg" href="{{'/inscriere'}}">Trimite propunerea ta</a>
         </p>
         <img class="img-responsive wow fadeIn" src="{{ 'assets/images/banner-fng.png'|theme }}" alt="" data-wow-duration="300ms" data-wow-delay="300ms" style="margin:auto;">
     </div>

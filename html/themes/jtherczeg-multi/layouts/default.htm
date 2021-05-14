@@ -19,6 +19,16 @@ description = "default layout"
 
 {% page %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="{{'assets/images/ctt.jpeg'|theme}}" style="margin: auto;
+    width: 100%; margin-bottom: 25px;">
+            </div>
+        </div>
+    </div>
+
+
 <footer id="footer">
     {% partial "footer" %}
 </footer><!--/#footer-->
@@ -36,6 +46,12 @@ description = "default layout"
     <script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
 {% framework extras %}
 {% scripts %}
+<style>
+    h2.section-header .section-title {
+        font-size: 36px;
+    }
+
+</style>
 </body>
 
 </html>
