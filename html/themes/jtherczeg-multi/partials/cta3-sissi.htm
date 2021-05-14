@@ -1,5 +1,16 @@
 [viewBag]
 ==
+
+<?php
+function onStart()
+{
+    $lastday = strtotime('16 June 2021');
+    $today = time();
+    $days = floor( ($lastday - $today)/86400);
+    $this['days'] = $days;
+}
+?>
+
 <section id="cta2" style="padding:0;">
     <div class="container">
         <h2 class="wow fadeInUp text-center" data-wow-duration="300ms" data-wow-delay="0ms">Daca invătătoarea copilului tău merita toate laudele,
