@@ -108,7 +108,7 @@
             $originalImage = public_path('public/sissi_diploma.jpg');
 
             $img = Image::make($originalImage)->fit(1024,691);
-            $img->text($this->teacherName . ' ' .$this->teacherSurname, 550, 210, function ($font) {
+            $img->text($this->teacherName . ' ' .$this->teacherSurname, 550, 160, function ($font) {
                 $font->color('#00193f');
                 $font->size(40);
                 $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
@@ -116,7 +116,7 @@
                 $font->valign('top');
             });
 
-            $img->text($this->teacherSchool, 550, 375, function ($font) {
+            $img->text($this->teacherSchool, 550, 315, function ($font) {
                 $font->color('#00193f');
                 $font->size(26);
                 $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
@@ -124,7 +124,7 @@
                 $font->valign('top');
             });
 
-            $img->text($this->userName . ' ' .$this->userSurname, 550, 450, function ($font) {
+            $img->text($this->userName . ' ' .$this->userSurname, 550, 410, function ($font) {
                 $font->color('#00193f');
                 $font->size(26);
                 $font->file(storage_path('fonts/MYRIADPRO-REGULAR.OTF'));
@@ -182,7 +182,7 @@
                 $font->valign('top');
             });
 
-            $img->text($this->teacherSchool, 400, 240, function ($font) {
+            $img->text($this->teacherSchool, 400, 225, function ($font) {
                 $font->color('#ffff');
                 $font->size(22);
                 $font->file(storage_path('fonts/MYRIADPRO-SEMIBOLDIT.OTF'));
