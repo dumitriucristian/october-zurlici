@@ -1,0 +1,151 @@
+{% set activePage = 'sissi' %}
+<div class="container-wrapper">
+    <div class="container">
+        <form id="main-contact-form" data-request="onCreate">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contact-form">
+                        <h3>Trimite o scrisoare de apreciere</h3>
+                        <div class="form-group">
+                            <input type="text" name="teacher-name" class="form-control" placeholder="Numele tau" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="teacher-surname" class="form-control" placeholder="Prenumele tau" required>
+                        </div>
+
+                        <h3>Spune-ne cateva date despre elevul tau</h3>
+                        <div class="form-group">
+                            <input type="text" name="student-name" class="form-control" placeholder="Numele elevului tau" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="student-surname" class="form-control" placeholder="Prenumele elevului tau" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control" placeholder="un subiect gen: Te apreciez pentru ca citesti foarte mult" required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea
+                                id="letter"
+                                maxlength="487"
+                                name="letter"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Scrie textul tau de apreciere"
+                                required>Textul tau de apreciere</textarea>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                            <label class="form-check-label" for="exampleCheck1">Am citit
+                                <a href="#">conditiile de inscriere</a> si
+                                <a href="#">regulamentul concursului</a> si sunt de acord.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block btn-sm" >Trimite</button>
+                    </div>
+                </div>
+                <!--do not del required for test to be moved -->
+                           <div class="col-sm-6">
+                               <div class="contact-form">
+                                   <div id="imageResult" >
+                                       {% partial "@preview" preview_content='' %}
+                                   </div>
+                               </div>
+                           </div>
+
+                <div class="col-sm-6">
+                    <div class="contact-form">
+                        <div id="imageResult" >
+                            <img src="/storage/app/media/teachers/templates/scrisoare.png" >
+                            <div id="student-mirela" class="font-mirela"></div>
+                            <div id="subject" class="font-mirela"></div>
+                            <div id="parinte-mirela" class="font-mirela"></div>
+                            <div id="invatatoare-mirela" class="font-mirela"></div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    #subject{
+        position: absolute;
+        width: 87%;
+        top: 28%;
+        left: 11%;
+    }
+    #invatatoare-mirela{
+        position: absolute;
+        top: 92%;
+        text-shadow: white -1px -2px 2px;
+        font-weight: bold;
+        color: #ee4a9a;
+        left: 10%;
+        width: 89%;
+
+    }
+
+    #parinte-mirela{
+        position: absolute;
+        top: 36%;
+        width: 75%;
+        left: 18%;
+    }
+
+    #student-mirela{
+        position: absolute;
+        top: 17%;
+        width: 88%;
+    }
+
+    #imageResult img{
+        position:relative;
+        width: 100%;
+        margin-top: 25px;
+
+    }
+
+    @media screen and (min-width: 601px) {
+        #parinte-mirela{
+            font-size: 1.8vh;
+        }
+        .font-mirela{
+            text-align: center;
+            width: 40%;
+            font-size: 2.2vh;
+            color: white;
+            font-weight: bold;
+            left: 10%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        #student-mirela{
+            top:19%;
+        }
+
+        #subject{
+            top:30%;
+        }
+        #parinte-mirela{
+            top:37%;
+            line-height: 1.5;
+            left:18%;
+            width:71%;
+        }
+        .font-mirela{
+            text-align: center;
+            width: 40%;
+            font-size: 1.3vh;
+            color: white;
+            font-weight: bold;
+            left: 10%;
+        }
+        #invatatoare-mirela{
+            top: 90%;
+        }
+    }
+</style>
+

@@ -11,7 +11,8 @@ class Plugin extends PluginBase
               'Cdumitriu\Teacher\Components\TeacherList'  => 'TeacherList',
               'Cdumitriu\Teacher\Components\TeacherDetails'  => 'TeacherDetails',
               'Cdumitriu\Teacher\Components\TeacherPage'  => 'teacherPage',
-               'Cdumitriu\Teacher\Components\TeacherSuccess' => 'TeacherSuccess'
+              'Cdumitriu\Teacher\Components\TeacherSuccess' => 'TeacherSuccess',
+              'Cdumitriu\Teacher\Components\LetterForm' => 'LetterForm'
 
             ];
     }
