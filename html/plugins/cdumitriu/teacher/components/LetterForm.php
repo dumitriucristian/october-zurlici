@@ -97,23 +97,23 @@ class LetterForm extends ComponentBase
         $originalImage = public_path('public/scrisoare.png');
 
         $img = Image::make($originalImage)->fit(610,768);
-        $img->text($this->teacherName . ' ' .$this->teacherSurname, 260, 700, function ($font) {
+        $img->text($this->teacherName . ' ' .$this->teacherSurname, 210, 700, function ($font) {
             $font->color('#00193f');
-            $font->size(40);
+            $font->size(20);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
-        $img->text($this->studentName . ' ' .$this->studentSurname, 320, 110, function ($font) {
+        $img->text($this->studentName . ' ' .$this->studentSurname, 340, 110, function ($font) {
             $font->color('#00193f');
-            $font->size(40);
+            $font->size(30);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');
         });
-        $img->text($this->appreciation, 230, 190, function ($font) {
+        $img->text($this->appreciation, 340, 190, function ($font) {
             $font->color('#00193f');
-            $font->size(40);
+            $font->size(20);
             $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
             $font->align('center');
             $font->valign('top');

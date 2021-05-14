@@ -21,13 +21,13 @@
                             <input type="text" name="student-surname" class="form-control" placeholder="Prenumele elevului tau" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" class="form-control" placeholder="un subiect gen: Te apreciez pentru ca citesti foarte mult" required>
+                            <input type="text" name="subject" class="form-control" maxlength="50" placeholder="un subiect gen: Te apreciez pentru ca citesti foarte mult" required>
                         </div>
 
                         <div class="form-group">
                             <textarea
                                 id="letter"
-                                maxlength="487"
+                                maxlength="400"
                                 name="letter"
                                 class="form-control"
                                 rows="4"
@@ -70,35 +70,55 @@
     </div>
 </div>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
     #subject{
         position: absolute;
-        width: 87%;
-        top: 28%;
-        left: 11%;
+        width: 64%;
+        top: 27%;
+        left: 26%;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2vh;
+        color: black;
+        text-align: left;
+        font-weight: bold;
     }
     #invatatoare-mirela{
         position: absolute;
-        top: 92%;
-        text-shadow: white -1px -2px 2px;
+        top: 90%;
         font-weight: bold;
-        color: #ee4a9a;
-        left: 10%;
+        color: black;
+        left: 25%;
         width: 89%;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2vh;
+        text-align: left;
 
     }
 
     #parinte-mirela{
         position: absolute;
-        top: 36%;
-        width: 75%;
-        left: 18%;
+        top: 17%;
+        width: 73%;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.4vh;
+        color: black;
+        left: 20%;
+        text-align: left;
+        font-weight: bold;
     }
 
     #student-mirela{
         position: absolute;
         top: 17%;
-        width: 88%;
+        width: 76%;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.8vh;
+        color: black;
+        left: 23%;
+        text-align: left;
+        font-weight: bold;
     }
+
 
     #imageResult img{
         position:relative;
@@ -108,43 +128,47 @@
     }
 
     @media screen and (min-width: 601px) {
-        #parinte-mirela{
-            font-size: 1.8vh;
-        }
+
         .font-mirela{
             text-align: center;
             width: 40%;
             font-size: 2.2vh;
-            color: white;
-            font-weight: bold;
             left: 10%;
         }
     }
 
     @media screen and (max-width: 600px) {
         #student-mirela{
-            top:19%;
+            top: 19%;
+            font-size: 1.2vh;
+            width: 67%;
+
         }
 
         #subject{
-            top:30%;
+            top: 32%;
+            font-size: 1.2vh;
+            line-height: 1.2;
         }
         #parinte-mirela{
-            top:37%;
-            line-height: 1.5;
-            left:18%;
-            width:71%;
+            top: 42%;
+            line-height: 1.2;
+            left: 21%;
+            width: 70%;
+            font-size: 10px;
+            color: black;
+            font-weight: bold;
         }
         .font-mirela{
             text-align: center;
             width: 40%;
             font-size: 1.3vh;
-            color: white;
-            font-weight: bold;
             left: 10%;
         }
         #invatatoare-mirela{
             top: 90%;
+            font-size: 12px;
+            font-weight: bold;
         }
     }
 </style>
