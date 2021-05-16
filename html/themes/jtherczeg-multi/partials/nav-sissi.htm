@@ -1,0 +1,36 @@
+<nav id="main-menu" class="navbar navbar-default navbar-fixed-top justify-content-center" role="banner">
+    <div class="container center">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#home"><img src="{{ 'assets/images/logo.png'|theme }}" alt="logo"></a>-->
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-center">
+            <ul class="nav navbar-nav">
+                <li class="scroll active"><a href="/">Despre Campanie</a></li>
+                <li class="scroll"><a href="{{ url('/') }}/invatatoarea-anului">Învățătoarea Anului 2021</a></li>
+                <li class="scroll"><a href="{{ url('/') }}/inscriere-sissi">Propune Învățătoarea Anului</a></li>
+                <li class="scroll"><a href="{{ url('/') }}/scrisoare-de-apreciere">Scrisoare-de-apreciere</a></li>
+                <li class="scroll"><a href="{{ url('/') }}/nominalizarile-anului-sissi">Nominalizări 2021</a></li>
+            </ul>
+        </div>
+    </div><!--/.container-->
+</nav><!--/nav-->
+<style>
+    @media (max-width: 1024px) {
+        .nav>li>a{
+            padding:10px 7px;
+        }
+    }
+    @media (min-width: 768px) {
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    }
+</style>

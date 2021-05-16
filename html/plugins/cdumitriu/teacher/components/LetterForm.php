@@ -4,6 +4,7 @@ namespace Cdumitriu\Teacher\Components;
 use cdumitriu\Teacher\Models\Letter;
 use Cms\Classes\ComponentBase;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use October\Rain\Database\Model;
 use October\Rain\Exception\ValidationException;
 use October\Rain\Support\Facades\Validator;
@@ -55,37 +56,31 @@ class LetterForm extends ComponentBase
 
     public function onSend(){
 
-        $this->setSissi();
+
         $this->validateInput();
         //@todo time function should be replaced with laravel time functions
 
         //saveImage
-        $customName = strtolower( $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.jpg');
-        $imagePath = strtolower( 'app/media/teachers/').$customName;
+        $customName = strtolower( $this->teacherName .'_'. $this->teacherSurname.'_'.time().'.png');
+        $imagePath = strtolower( 'app/media/teachers/letter/').$customName;
         $this->generateImageSissi($imagePath);
 
         //save user data
         $letter = new Letter();
-        $letter->image = $customName;
+        $letter->file = $customName;
         $letter->student_name = $this->studentName;
         $letter->student_surname = $this->studentSurname;
         $letter->teacher_name = $this->teacherName;
         $letter->teacher_surname = $this->teacherSurname;
-        $letter->appreciation = $this->subject;
+        $letter->apreciation = $this->appreciation;
         $letter->letter = $this->letter;
-        $letter->teacher_county = $this->teacherCounty;
+        $letter->sursa="sissi";
 
         $letter->ip = Request::ip();
-        // $teacher->letter = $letter;
-        $letter->source = ($this->typeSissi) ? "sissi" : "FNG";
         $letter->save();
+        Session::put('letter',$letter->getKey());
+        return Redirect::to('/scrisoare-succes/'.hash('crc32',$letter->getKey()));
 
-        //if inscriere-sissi
-        if ($this->typeSissi) {
-            return Redirect::to('/succes-sissi/'.$letter->getKey());
-        }
-        // redirect user to teacher page;
-        return Redirect::to('/succes/'.$letter->getKey());
     }
 
     private function generateImageSissi($imagePath=null)
@@ -130,50 +125,7 @@ class LetterForm extends ComponentBase
             });
         }
 
-
-        $fileName = (is_null($imagePath)) ? 'app/media/teachers/scrisoare.png' : $imagePath;
-        $img->save(storage_path($fileName));
-
-        return $img;
-    }
-
-    private function generateImage( $imagePath=null)
-    {
-        $originalImage = public_path('public/diploma_fng.jpg');
-
-        $img = Image::make($originalImage)->fit(800,475);
-        $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 125, function ($font) {
-            $font->color('#fffff');
-            $font->size(33);
-            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('left');
-            $font->valign('top');
-        });
-        $img->text($this->teacherName . ' ' .$this->teacherSurname, 398, 126, function ($font) {
-            $font->color('#fffff');
-            $font->size(33);
-            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('left');
-            $font->valign('top');
-        });
-
-        $img->text($this->teacherName . ' ' .$this->teacherSurname, 400, 128, function ($font) {
-            $font->color('#ee4a9a');
-            $font->size(33);
-            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('left');
-            $font->valign('top');
-        });
-
-        $img->text($this->teacherSchool, 400, 240, function ($font) {
-            $font->color('#ffff');
-            $font->size(22);
-            $font->file(storage_path('fonts/DancingScript-Bold.ttf'));
-            $font->align('center');
-            $font->valign('top');
-        });
-
-        $fileName = (is_null($imagePath)) ? 'app/media/teachers/diploma_fng.jpg' : $imagePath;
+        $fileName = (is_null($imagePath)) ? 'app/media/teachers/letter/scrisoare.png' : $imagePath;
         $img->save(storage_path($fileName));
 
         return $img;
