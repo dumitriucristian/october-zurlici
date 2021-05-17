@@ -1,23 +1,22 @@
-title = "succes-sissi"
-url = "/succes-sissi/:teacher"
+title = "scrisoare-succes"
+url = "/scrisoare-succes/:letter"
 layout = "default-sissi"
-description = "Pagina sissi"
 is_hidden = 0
 
-[TeacherSuccess]
+[LetterSuccess]
 ==
 <div class="container-wrapper">
 
      {% partial 'cta2-sissi' %}
 
     <div class="container">
-       {% component 'TeacherSuccess' %}
+      {% component 'LetterSuccess' %}
         <div class="row" style="margin-top:35px; margin-bottom:35px;">
            <div class="col-sm-6 text-center">
              <!-- verifica daca utilizatorul vine din pagina -->
                <br>
-            <h3 >Felicitari, ai nominalizat invatatoarea cu succes!</h3><br>
-            <h4>Daca doresti sa ii faci cunoscut gestul tau, ii poti oferi o diploma de apreciere.</h4>
+            <h3>Felicitari! Scrisoarea ta de apreciere a fost creata!</h3><br>
+            <h4>Daca doresti sa faci cunoscut gestul tau, poti oferi aceasta scrisoare de apreciere.</h4>
         <br>
            <div style="marin-top:35px">
               <!-- <p class="text-center"><a class="btn btn-primary" href="http://localhost/nominalizarile-anului">Vezi si alte nominalizari</a></p>-->
