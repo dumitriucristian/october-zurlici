@@ -11,7 +11,7 @@ services:
       db_type: mysql
       user: root
       password: root
-      host: octobercmes_mysql_1
+      host: octobercms_mysql_1
     networks:
       -  code-network
   web:
