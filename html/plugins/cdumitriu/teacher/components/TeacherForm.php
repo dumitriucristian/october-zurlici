@@ -219,7 +219,7 @@
                 'teacher-city' => 'required',
                 'teacher-county' => 'required',
                 'teacher-school' => 'required',
-                'teacher-details' => 'required'
+                'teacher-details' => 'required|max:500'
             ];
 
             $validator = Validator::make($form,$rules);

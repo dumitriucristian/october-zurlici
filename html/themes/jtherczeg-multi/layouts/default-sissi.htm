@@ -1,0 +1,70 @@
+description = "default sissi"
+[cookiesBar]
+[viewBag]
+==
+<!DOCTYPE html>
+<head lang="en">
+<!-- Google Tag Manager -->
+<script>
+     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TMQTL2B');
+</script>
+    {% partial "meta" %}
+</head>
+<body>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMQTL2B"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <header id="header">
+
+        {% if sgCookies.consent == 0 %}
+            {% component 'cookiesBar' %}
+        {% endif %}
+
+        {% partial "nav-sissi" %}
+    </header><!--/header-->
+
+    {% page %}
+    <!--
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="{{'assets/images/ctt.jpeg'|theme}}" style="margin: auto;
+        width: 100%; margin-bottom: 25px;">
+                </div>
+            </div>
+        </div>
+    -->
+
+    <footer id="footer">
+        {% partial "footer" %}
+    </footer><!--/#footer-->
+
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="{{ 'assets/js/jquery.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/bootstrap.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/owl.carousel.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/mousescroll.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/smoothscroll.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/jquery.prettyPhoto.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/jquery.isotope.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/jquery.inview.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/wow.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
+    <style>
+        #cta2 {
+            padding-top:0;
+        }
+        .section-header h2.section-title,#cta2 h2  {
+            font-size: 30px;
+        }
+   </style>
+</body>
+
+</html>

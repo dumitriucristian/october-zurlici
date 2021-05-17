@@ -1,0 +1,32 @@
+title = "scrisoare-succes"
+url = "/scrisoare-succes/:letter"
+layout = "default-sissi"
+is_hidden = 0
+
+[LetterSuccess]
+==
+<div class="container-wrapper">
+
+     {% partial 'cta2-sissi' %}
+
+    <div class="container">
+      {% component 'LetterSuccess' %}
+        <div class="row" style="margin-top:35px; margin-bottom:35px;">
+           <div class="col-sm-6 text-center">
+             <!-- verifica daca utilizatorul vine din pagina -->
+               <br>
+            <h3>Felicitari! Scrisoarea ta de apreciere a fost creata!</h3><br>
+            <h4>Daca doresti sa faci cunoscut gestul tau, poti oferi aceasta scrisoare de apreciere.</h4>
+        <br>
+           <div style="marin-top:35px">
+              <!-- <p class="text-center"><a class="btn btn-primary" href="http://localhost/nominalizarile-anului">Vezi si alte nominalizari</a></p>-->
+               <p class="text-center"><a class="btn btn-primary" href="{{image}}" download>Descarca diploma</a></p>
+           </div>
+        </div>
+            <br>
+        <div class="col-sm-6">
+            <img src="{{image}}" style="width:100%; margin:auto;">
+        </div>
+        </div>
+    </div>
+</div>
