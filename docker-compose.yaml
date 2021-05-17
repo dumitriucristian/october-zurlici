@@ -1,7 +1,19 @@
 version: '3'
 
 services:
-
+  sqlbak:
+    image: pranasnet/sqlbak
+    volumes:
+       - backup_folder:/tmp/sqlbak
+    environment:
+      sqlbak_key: "e2d949a0-40e1-4c25-a1d4-79eb8f961afc"
+      sqlbak_name: docker-sqlback-live
+      db_type: mysql
+      user: root
+      password: root
+      host: octobercmes_mysql_1
+    networks:
+      -  code-network
   web:
     build: ./.docker/php
     #image: aspendigital/octobercms:latest
@@ -33,6 +45,7 @@ services:
       - MYSQL_DATABASE=octobercms
     volumes:
       - mysql-data:/var/lib/mysql
+      - backup_folder:/tmp/sqlbak
     networks:
       - code-network
     container_name: octobercms_mysql_1
@@ -43,3 +56,4 @@ networks:
     driver: bridge
 volumes:
   mysql-data:
+  backup_folder:
