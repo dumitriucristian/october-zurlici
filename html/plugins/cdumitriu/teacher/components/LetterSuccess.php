@@ -34,7 +34,7 @@ class LetterSuccess extends ComponentBase
             $this->page['teacherName'] = $letter->teacher_name;
             $this->page['teacherSurname'] = $letter->teacher_surname;
             $this->page['image']  = media_path('/teachers/letter/'.$letter->file);
-            Session::forget('letter');
+   
         }catch(\Exception $e){
 
             return Response::make('Access denied!', 403);
