@@ -310,6 +310,57 @@ return [
     | path for the uploads disk and `/projects/october/storage/app/media` as
     | the path for the media disk.
     */
+    'fileDefinitions' => [
+        'defaultExtensions' => [
+            // your new custom extensions
+            'json',
+            // defaults
+            'jpg',
+            'jpeg',
+            'bmp',
+            'png',
+            'webp',
+            'gif',
+            'svg',
+            'js',
+            'map',
+            'ico',
+            'css',
+            'less',
+            'scss',
+            'ics',
+            'odt',
+            'doc',
+            'docx',
+            'ppt',
+            'pptx',
+            'pdf',
+            'swf',
+            'txt',
+            'xml',
+            'ods',
+            'xls',
+            'xlsx',
+            'eot',
+            'woff',
+            'woff2',
+            'ttf',
+            'flv',
+            'wmv',
+            'mp3',
+            'ogg',
+            'wav',
+            'avi',
+            'mov',
+            'mp4',
+            'mpeg',
+            'webm',
+            'mkv',
+            'rar',
+            'xml',
+            'zip',
+        ]
+    ],
 
     'storage' => [
 
@@ -318,6 +369,11 @@ return [
             'folder'          => 'uploads',
             'path'            => '/storage/app/uploads',
             'temporaryUrlTTL' => 3600,
+        ],
+        'csv' => [
+            'disk'   => 'local',
+            'folder' => 'media',
+            'path'   => '/storage/csv',
         ],
 
         'media' => [

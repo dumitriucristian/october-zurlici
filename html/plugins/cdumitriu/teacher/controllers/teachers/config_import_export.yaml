@@ -1,0 +1,6 @@
+export:
+    title: Export teacher
+    modelClass: cdumitriu\Teacher\Models\Teacher
+    list: $/cdumitriu/teacher/models/teacher/columns.yaml
+    redirect: cdumitriu/campaign/subscribers
+
