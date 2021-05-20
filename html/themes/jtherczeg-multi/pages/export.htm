@@ -1,22 +1,28 @@
 title = "export"
 url = "/export"
-layout = "default"
+layout = "default-sissi"
 is_hidden = 0
 ==
-function onStart()
-{
-    $file = 'public/data.csv';
- $exist = file_exists($file);
-$handle = fopen($file, "r");
+<?php
+function onInit(){
+    $this['loggedIn'] = BackendAuth::check();
 
-$contents = fread($handle, filesize($file));
-   //\ var_dump( $contents);
 }
-
-
 ==
-<div class="container">
-    <div class="row">
-        <a href="storage/app/csv/invatatoarea-anului.csv" download="invatatoarea-anului.csv">Your download is ready</a>
+{% partial 'cta2-fng' %}
+<div class="container text-center">
+    {% if loggedIn  == true %}
+    <div class="row" >
+        <div style="height: 250px; margin:5em 0;" >
+            <h2>Your data is ready</h2>
+            <a class="btn btn-lg btn-primary" href="storage/app/csv/invatatoarea-anului.csv" download="invatatoarea-anului.csv">Download</a>
+        </div>
     </div>
+    {% else %}
+    <div class="row" >
+        <div style="height: 250px; margin:5em 0;" >
+            <h2>You are not authorized. Please login or contact Admin</h2>
+        </div>
+    </div>
+    {% endif %}
 </div>
