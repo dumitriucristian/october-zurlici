@@ -1,0 +1,22 @@
+title = "export"
+url = "/export"
+layout = "default"
+is_hidden = 0
+==
+function onStart()
+{
+    $file = 'public/data.csv';
+ $exist = file_exists($file);
+$handle = fopen($file, "r");
+
+$contents = fread($handle, filesize($file));
+   //\ var_dump( $contents);
+}
+
+
+==
+<div class="container">
+    <div class="row">
+        <a href="storage/app/csv/invatatoarea-anului.csv" download="invatatoarea-anului.csv">Your download is ready</a>
+    </div>
+</div>
