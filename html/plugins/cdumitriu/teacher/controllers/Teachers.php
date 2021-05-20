@@ -87,11 +87,8 @@ class Teachers extends Controller
             }
             fclose($file);
         }catch(\Exception $e){
-            var_dump( $e->getMessage());
+            //var_dump( $e->getMessage());
         }
-        return  Redirect::to('/export');
+        return  Redirect::to('/export')->with('page', $fileName);
     }
-
-
-
 }

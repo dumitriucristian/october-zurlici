@@ -6,7 +6,7 @@ is_hidden = 0
 <?php
 function onInit(){
     $this['loggedIn'] = BackendAuth::check();
-
+    $this['file'] = Session::get('page');
 }
 ==
 {% partial 'cta2-fng' %}
@@ -15,7 +15,7 @@ function onInit(){
     <div class="row" >
         <div style="height: 250px; margin:5em 0;" >
             <h2>Your data is ready</h2>
-            <a class="btn btn-lg btn-primary" href="storage/app/csv/invatatoarea-anului.csv" download="invatatoarea-anului.csv">Download</a>
+            <a class="btn btn-lg btn-primary" href="storage/app/csv/{{file}}" download="{{file}}">Download</a>
         </div>
     </div>
     {% else %}
