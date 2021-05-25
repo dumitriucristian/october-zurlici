@@ -36,3 +36,14 @@ fields:
         label: Source
         span: auto
         type: text
+    email:
+        label: Email
+        span: auto
+        type: text
+    newsletter:
+        label: newsletter
+        span: auto
+        options:
+            - 'Nu doresc'
+            - Doresc
+        type: radio

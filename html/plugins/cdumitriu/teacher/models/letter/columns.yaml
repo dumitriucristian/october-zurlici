@@ -35,3 +35,9 @@ columns:
     sursa:
         label: sursa
         type: text
+    email:
+        label: email
+        type: text
+    newsletter:
+        label: newsletter
+        type: text

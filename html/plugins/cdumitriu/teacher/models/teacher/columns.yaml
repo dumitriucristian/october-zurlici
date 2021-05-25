@@ -57,3 +57,6 @@ columns:
     image:
         label: Image
         type: text
+    newsletter:
+        label: newsletter
+        type: text
