@@ -36,3 +36,9 @@
 1.0.13:
     - 'Updated table cdumitriu_teacher_details'
     - builder_table_update_cdumitriu_teacher_details_7.php
+1.0.14:
+    - 'Updated table cdumitriu_teacher_details'
+    - builder_table_update_cdumitriu_teacher_details_8.php
+1.0.15:
+    - 'Updated table cdumitriu_teacher_letters'
+    - builder_table_update_cdumitriu_teacher_letters_3.php

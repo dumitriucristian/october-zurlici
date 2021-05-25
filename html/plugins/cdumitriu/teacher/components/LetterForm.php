@@ -21,6 +21,8 @@ class LetterForm extends ComponentBase
     private $teacherSurname;
     private $appreciation;
     private $letter;
+    private $newsletter;
+    private $email;
 
 
     public function componentDetails()
@@ -75,6 +77,8 @@ class LetterForm extends ComponentBase
         $letter->apreciation = $this->appreciation;
         $letter->letter = $this->letter;
         $letter->sursa="sissi";
+        $letter->email =$this->email;
+        $letter->newsletter = $this->newsletter;
 
         $letter->ip = Request::ip();
         $letter->save();
@@ -139,6 +143,8 @@ class LetterForm extends ComponentBase
         $this->teacherSurname = Input::get('teacher-surname');
         $this->appreciation = Input::get('subject');
         $this->letter = Input::get('letter');
+        $this->newsletter = Input::get('newsletter');
+        $this->email = Input::get('email');
 
         $form = Input::all();
 
@@ -148,7 +154,8 @@ class LetterForm extends ComponentBase
             'teacher-name' => 'required',
             'teacher-surname' => 'required',
             'subject' => 'required',
-            'letter' => 'required'
+            'letter' => 'required',
+            'email' => 'required'
         ];
 
         $validator = Validator::make($form,$rules);

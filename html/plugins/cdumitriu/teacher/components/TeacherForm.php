@@ -24,6 +24,7 @@
         private $teacherCity;
         private $teacherCounty;
         private $typeSissi;
+        private $newsletter;
 
         public function componentDetails()
         {
@@ -91,7 +92,7 @@
             $teacher->school = $this->teacherSchool;
             $teacher->year = 2021;
             $teacher->ip = Request::ip();
-            // $teacher->letter = $letter;
+             $teacher->newsletter = $this->newsletter;
             $teacher->source = ($this->typeSissi) ? "sissi" : "FNG";
             $teacher->save();
 
@@ -207,8 +208,10 @@
             $this->teacherSchool = Input::get('teacher-school');
             $this->teacherCity = Input::get('teacher-city');
             $this->teacherCounty = Input::get('teacher-county');
+            $this->newsletter = Input::get('newsletter');
 
             $form = Input::all();
+
 
             $rules = [
                 'user-name' => 'required',
