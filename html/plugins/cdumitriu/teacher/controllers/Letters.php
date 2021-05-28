@@ -35,7 +35,8 @@ class Letters extends Controller
             'mume utilizator',
             'ip',
             'sursa',
-            'imagine'
+            'imagine',
+            'newsletter'
         ];
 
 
@@ -56,6 +57,7 @@ class Letters extends Controller
                 $row['ip'] = $letter->ip;
                 $row['sursa'] = $letter->sursa;
                 $row['image'] = $letter->file;
+                $row['newsletter'] = $letter->newsletter;
 
                 fputcsv($file, [
                     $row['id'],
@@ -66,7 +68,7 @@ class Letters extends Controller
                     $row['student_name'],
                     $row['ip'],
                     $row['sursa'],
-                    $row['image']
+                    $row['newsletter']
                 ]);
             }
             fclose($file);
