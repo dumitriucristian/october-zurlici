@@ -41,7 +41,8 @@ class Teachers extends Controller
             'judet',
             'ip',
             'sursa',
-            'imagine'
+            'imagine',
+            'newsletter'
 
         ];
 
@@ -67,6 +68,7 @@ class Teachers extends Controller
                 $row['ip'] = $teacher->ip;
                 $row['sursa'] = $teacher->source;
                 $row['image'] = $teacher->image;
+                $row['newsletter'] = $teacher->newsletter;
 
 
                 fputcsv($file, [
@@ -82,7 +84,8 @@ class Teachers extends Controller
                     $row['teacher_county'],
                     $row['ip'],
                     $row['sursa'],
-                    $row['image']
+                    $row['image'],
+                    $row['newsletter']
                 ]);
             }
             fclose($file);
