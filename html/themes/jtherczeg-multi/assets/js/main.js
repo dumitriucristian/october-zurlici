@@ -124,10 +124,11 @@ jQuery(function($) {'use strict';
 		var winTop      =   $(window).scrollTop();
 		var rangeTop    =   200;
 		var rangeBottom =   500;
-		$('.navbar-collapse').find('.scroll a').each(function(){
+	/*	$('.navbar-collapse').find('.scroll a').each(function(){
 			contentTop.push( $( $(this).attr('href') ).offset());
 			contentBottom.push( $( $(this).attr('href') ).offset() + $( $(this).attr('href') ).height() );
 		})
+		*/
 		$.each( contentTop, function(i){
 			if ( winTop > contentTop[i] - rangeTop ){
 				$('.navbar-collapse li.scroll')
@@ -336,6 +337,4 @@ jQuery(function($) {'use strict';
 			map: map
 		});
 	}
-	google.maps.event.addDomListener(window, 'load', initialize_map);
-
 });
