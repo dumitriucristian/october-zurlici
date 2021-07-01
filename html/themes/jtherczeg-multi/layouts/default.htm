@@ -31,7 +31,7 @@ description = "default layout"
 
             {% partial "footer" %}
         </footer><!--/#footer-->
-            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+           
             <script type="text/javascript" src="{{ 'assets/js/jquery.js'|theme }}"></script>
             <script type="text/javascript" src="{{ 'assets/js/bootstrap.min.js'|theme }}"></script>
             <script type="text/javascript" src="{{ 'assets/js/owl.carousel.min.js'|theme }}"></script>
@@ -42,8 +42,7 @@ description = "default layout"
             <script type="text/javascript" src="{{ 'assets/js/jquery.inview.min.js'|theme }}"></script>
             <script type="text/javascript" src="{{ 'assets/js/wow.min.js'|theme }}"></script>
             <script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
-        {% framework extras %}
-        {% scripts %}
+     
         <style>
             #cta2 {
                 padding-top:0;
@@ -52,5 +51,7 @@ description = "default layout"
                 font-size: 30px;
             }
         </style>
+         {% scripts %} 
+         {% styles %}  
     </body>
 </html>
