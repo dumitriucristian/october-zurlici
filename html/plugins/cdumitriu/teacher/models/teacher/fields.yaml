@@ -49,3 +49,10 @@ fields:
         label: Image
         span: auto
         type: text
+    newsletter:
+        label: newssletter
+        span: auto
+        options:
+            - 'Nu doresc'
+            - Doresc
+        type: radio
